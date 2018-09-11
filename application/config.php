@@ -15,7 +15,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -229,7 +229,9 @@ return [
         // 是否使用 setcookie
         'setcookie' => true,
     ],
-
+    'view_replace_str'=>[
+        '__ADMIN__'=>'/public/static',
+    ],
     //分页配置
     'paginate'               => [
         'type'      => 'bootstrap',
