@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lorvens-Bootstrap Admin Dashboard and UI kit</title>
+    <title>中国居民营养与健康云平台</title>
     {block name='css'}
     <!-- Fav  Icon Link -->
     <link rel="shortcut icon" type="image/png" href="__ADMIN__/images/fav.png">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="__ADMIN__/css/bootstrap.min.css">
+    <!-- Font-Awesome icons CSS -->
+    <link rel="stylesheet" href="__ADMIN__/css/font-awesome.min.css">
     <!-- themify icons CSS -->
     <link rel="stylesheet" href="__ADMIN__/css/themify-icons.css">
     <!-- Animations CSS -->
@@ -58,11 +60,13 @@
         <ul class="list-unstyled components">
             <li class="active">
                 <a href="#nav-dashboard" data-toggle="collapse" aria-expanded="true">
-                    <span class="ti-home"></span> Dashboard
+                    <span class="ti-home"></span> 会员管理
                 </a>
                 <ul class="collapse list-unstyled show" id="nav-dashboard">
                     <li>
-                        <a href="{:url('Index/ceshi')}">测试</a>
+                        <!--<a href="{:url('Index/ceshi')}">测试</a>-->
+                        <a href="{:url('Member/index')}">会员档案管理</a>
+                        <a href="{:url('Disease/index')}">病史分类</a>
                     </li>
                 </ul>
             </li>
@@ -229,5 +233,5 @@
 <script src="__ADMIN__/js/custom.js"></script>
 {/block}
 </body>
-
+{block name='other'}{/block}
 </html>

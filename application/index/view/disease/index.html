@@ -1,0 +1,294 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+											<span class="ti-close" data-dismiss="modal" aria-label="Close">
+											</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="../index/index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item">病例分类</li>
+		<li class="breadcrumb-item active">病例分类管理</li>
+	</ol>
+	<!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="block-title">病例分类管理</h3>
+			</div>
+		</div>
+		<!-- /Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<!--<h3 class="widget-title">会员档案管理</h3>-->
+					<div class="icon-container">
+						<a class="btn btn-primary" href="" style="margin-left: 10px;"><i class="fa fa-search"></i></i>查询</a>
+						<!--<a class="btn btn-primary" href="{:url('Disease/add')}" ><i class="fa fa-plus" aria-hidden="true"></i>添加病例</a>-->
+						<form action="{:url('Disease/add')}" method="post" id="subform" style="float: left;">
+							<input type="hidden" class="form-control" value="" id="citySel" onclick="showMenu();" placeholder="填写病例分类名称">
+							<input id="cityId" type="hidden" name="fenleiid" readonly value="" />
+							<a class="btn btn-primary" id="menuBtn" href="#" onclick="showMenu(); return false;" ><i class="fa fa-plus" aria-hidden="true"></i>添加病例</a>
+							<div id="menuContent" class="menuContent" style="display:none; position: absolute;z-index: 1;">
+								<input type="text" class="form-control" value="" name="fenlei" placeholder="填写病例分类名称" style="height: 38px;">
+								<a class="btn btn-primary" href="#" onclick="formSubmit();" style="position: absolute;top: 0;right: 0px;">确认所属分类</a>
+								<ul id="treeDemo" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
+								<!--<div style="width: 100%;">-->
+									<!--<a class="btn btn-primary" href="#" onclick="document.getElementById('subform').submit();return false" style="margin-left: 18px;width: 47%;">确认</a>-->
+									<!--<a class="btn btn-primary" href="" style="width: 47%;">关闭</a>-->
+								<!--</div>-->
+							</div>
+						</form>
+					</div>
+					<div class="table-div">
+						<table class="table table-hover">
+							<thead>
+							<tr>
+								<th scope="col" width="80">分类id</th>
+								<th scope="col" width="180">分类名称</th>
+								<th scope="col" width="120">上级分类名称</th>
+								<th scope="col" width="80">分类级别</th>
+								<th scope="col" width="60">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							{volist name="list" id="vo"}
+							<tr>
+								<th scope="row">{$vo.id}</th>
+								<td>{$vo.name}</td>
+								<td>{$vo.did|getTopCate="disease"}</td>
+								<td>{$vo.level}级分类</td>
+								<td><a class="btn btn-primary" href="#" onclick="del('{$vo.id}');">删除</a></td>
+							</tr>
+							{/volist}
+							</tbody>
+						</table>
+						<!--<nav aria-label="Page navigation example">-->
+							{$page}
+						<!--</nav>-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+</div>
+<!-- Back to Top -->
+<a id="back-to-top" href="#" class="back-to-top">
+	<span class="ti-angle-up"></span>
+</a>
+<!-- /Back to Top -->
+{block name='js'}
+<!-- Jquery Library-->
+<script src="__ADMIN__/js/jquery-3.2.1.min.js"></script>
+<!-- Popper Library-->
+<script src="__ADMIN__/js/popper.min.js"></script>
+<!-- Bootstrap Library-->
+<script src="__ADMIN__/js/bootstrap.min.js"></script>
+<!-- morris charts -->
+<script src="__ADMIN__/charts/js/raphael-min.js"></script>
+<script src="__ADMIN__/charts/js/morris.min.js"></script>
+<script src="__ADMIN__/js/custom-morris.js"></script>
+<!-- jvectormap -->
+<script src="__ADMIN__/js/jquery-jvectormap.min.js"></script>
+<script src="__ADMIN__/js/jquery-jvectormap-world-mill.js"></script>
+<script src="__ADMIN__/js/custom-vector.js"></script>
+<!-- Custom Script-->
+<script src="__ADMIN__/js/custom.js"></script>
+{/block}
+</body>
+{block name='other'}
+<!--无限级分类-->
+<link rel="stylesheet" href="__ADMIN__/css/demo.css" type="text/css">
+<link rel="stylesheet" href="__ADMIN__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+
+
+<!--无限级分类-->
+<!--无限级分类js-->
+<script type="text/javascript" src="__ADMIN__/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript">
+
+	var setting = {
+		check: {
+			enable: true,
+			chkStyle: "radio",
+			radioType: "all",
+			//chkboxType: {"Y":"", "N":""}
+		},
+		view: {
+			dblClickExpand: false
+		},
+		data: {
+			simpleData: {
+				enable: true
+			}
+		},
+		callback: {
+			beforeClick: beforeClick,
+			onCheck: onCheck
+		}
+	};
+	var url = "{:url('Disease/getDisease')}";
+	var zNodes = [];
+$.ajaxSettings.async = false;
+		$.post(url,function(data){
+			zNodes = $.parseJSON( data );
+		})
+//	var zNodes =[
+//		{id:1, pId:0, name:"北京"},
+//		{id:2, pId:0, name:"天津"},
+//		{id:3, pId:0, name:"上海"},
+//		{id:6, pId:0, name:"重庆"},
+//		{id:4, pId:0, name:"河北省"},
+//		{id:41, pId:4, name:"石家庄"},
+//		{id:42, pId:4, name:"保定"},
+//		{id:43, pId:4, name:"邯郸"},
+//		{id:44, pId:4, name:"承德"},
+//		{id:5, pId:0, name:"广东省"},
+//		{id:51, pId:5, name:"广州"},
+//		{id:52, pId:5, name:"深圳"},
+//		{id:53, pId:5, name:"东莞"},
+//		{id:54, pId:5, name:"佛山"},
+//		{id:6, pId:0, name:"福建省"},
+//		{id:61, pId:6, name:"福州"},
+//		{id:62, pId:6, name:"厦门"},
+//		{id:63, pId:6, name:"泉州"},
+//		{id:64, pId:6, name:"三明"}
+//	];
+	function beforeClick(treeId, treeNode) {
+		//console.log($.fn.zTree)
+		var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+		zTree.checkNode(treeNode, !treeNode.checked, null, true);
+		return false;
+	}
+
+	function onCheck(e, treeId, treeNode) {
+		var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+				nodes = zTree.getCheckedNodes(true),
+				v = "";
+		id = "";
+		for (var i=0, l=nodes.length; i<l; i++) {
+			v += nodes[i].name + ",";
+			id += nodes[i].id;
+		}
+		if (v.length > 0 ) v = v.substring(0, v.length-1);
+		var cityObj = $("#citySel");
+//        cityObj.attr("value", v);
+		var cityObjId = $("#cityId");
+		cityObjId.attr("value", id);
+//        console.log(id);
+	}
+
+	function showMenu() {
+		var cityObj = $("#citySel");
+		var cityOffset = $("#citySel").offset();
+//		$("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+		$("#menuContent").slideDown("fast");
+		$("body").bind("mousedown", onBodyDown);
+	}
+	function hideMenu() {
+		$("#menuContent").fadeOut("fast");
+		$("body").unbind("mousedown", onBodyDown);
+	}
+	function onBodyDown(event) {
+		if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+			hideMenu();
+		}
+	}
+	$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+	//添加病列
+	var urladd = "{:url('Disease/add')}";
+	function formSubmit() {
+		var data = $('#subform').serialize();
+		$.post(urladd,{form:data},function(data){
+			alert(data);
+			window.location.reload();
+		})
+	}
+
+	//删除病列
+	var urldel = "{:url('Disease/del')}";
+	function del(id) {
+		$.post(urldel,{id:id},function(data){
+			alert(data);
+			window.location.reload();
+		})
+	}
+
+</script>
+{/block}

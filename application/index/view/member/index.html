@@ -1,0 +1,139 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+											<span class="ti-close" data-dismiss="modal" aria-label="Close">
+											</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="../index/index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item">会员管理</li>
+		<li class="breadcrumb-item active">会员档案管理</li>
+	</ol>
+	<!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="block-title">会员档案管理</h3>
+			</div>
+		</div>
+		<!-- /Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<!--<h3 class="widget-title">会员档案管理</h3>-->
+					<div class="icon-container">
+						<a class="btn btn-primary" href="{:url('Member/add')}"><i class="fa fa-plus" aria-hidden="true"></i>添加档案</a>
+						<a class="btn btn-primary" href=""><i class="fa fa-search"></i></i>查询</a>
+					</div>
+					<div class="table-div">
+						<table class="table table-hover">
+							<thead>
+							<tr>
+								<th scope="col" width="80">序号</th>
+								<th scope="col" width="180">会员编号</th>
+								<th scope="col" width="120">会员姓名</th>
+								<th scope="col" width="80">年龄</th>
+								<th scope="col" width="80">性别</th>
+								<th scope="col" width="220">电话</th>
+								<th scope="col" width="220">建档日期</th>
+								<th scope="col" width="210">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							{volist name="list" id="vo"}
+							<tr>
+								<th scope="row">{$vo.id}</th>
+								<td>{$vo.cardid}</td>
+								<td>{$vo.name}</td>
+								<td>{$vo.age}</td>
+								<td>{$vo.sex}</td>
+								<td>{$vo.tel}</td>
+								<td>{$vo.jdtime|date='Y-m-d',###}</td>
+								<td></td>
+							</tr>
+							{/volist}
+							</tbody>
+						</table>
+						<!--<nav aria-label="Page navigation example">-->
+							{$page}
+						<!--</nav>-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}

@@ -10,3 +10,9 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+use think\Db;
+//获取上级分类
+function getTopCate($id,$model){
+    $name = Db::name($model)->where('id',$id)->value('name');
+    return $name == null ? '顶级分类' : $name;
+}
