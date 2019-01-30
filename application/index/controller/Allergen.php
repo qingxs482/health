@@ -3,9 +3,9 @@ namespace app\index\controller;
 use think\Db;
 use think\Request;
 
-class Disease extends Publica
+class Allergen extends Publica
 {
-    //病例分类信息
+    //过敏源分类信息
     public function index()
     {
         $request = request()->param();
@@ -13,24 +13,24 @@ class Disease extends Publica
             $where['name'] = array('like',"%".$request['search']."%");
         }
         $where['id'] = array('neq',0);
-        $disease = Db::name('disease')->where($where)->order('id desc')->paginate(15);
+        $disease = Db::name('allergen')->where($where)->order('id desc')->paginate(15);
         $this->assign('list',$disease);
         $page = $disease->render();
         $this->assign('page',$page);
         return $this->fetch();
     }
 
-    //病列添加
+    //过敏源分类添加
     public function add()
     {
         $request = request()->post();
         parse_str($request['form'], $request);
         if($request['fenleiid'] == null){
-            echo '没有选择所属分类病列';exit();
+            echo '没有选择所属分类过敏源';exit();
         }
         $data['did'] = $request['fenleiid'];
         $data['name'] = $request['fenlei'];
-        $result = Db::name('disease')->insert($data);
+        $result = Db::name('allergen')->insert($data);
         if($result){
             echo '添加成功';exit();
         }
@@ -41,26 +41,26 @@ class Disease extends Publica
     public function del(){
         $request = request()->post();
         //查询该分类是否存在并是否有下级分类
-        $dis = Db::name('disease')->where('id',$request['id'])->find();
+        $dis = Db::name('allergen')->where('id',$request['id'])->find();
         if($dis == null){
             echo '该分类不存在';exit();
         }
-        $rdis = Db::name('disease')->where('did',$request['id'])->select();
+        $rdis = Db::name('allergen')->where('did',$request['id'])->select();
         if($rdis){
             echo '该分类有下级分类,请先删除下级分类';exit();
         }
 
         //删除分类
-        $result = Db::name('disease')->where('id',$request['id'])->delete();
+        $result = Db::name('allergen')->where('id',$request['id'])->delete();
         if($result){
             echo '删除成功';exit();
         }
         echo '删除失败';exit();
     }
 
-    //查询所有病例
+    //查询所有过敏源分类
     public function getDisease(){
-        $disease = Db::name('disease')->select();
+        $disease = Db::name('allergen')->select();
         foreach($disease as $d){
             $jsonData[] = array(
                 'id'    => $d['id'],

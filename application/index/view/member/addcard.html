@@ -1,0 +1,137 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<object classid="clsid:5EB842AE-5C49-4FD8-8CE9-77D4AF9FD4FF" id="IdrControl1" width="100" height="0"></object>
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+									<span class="ti-close" data-dismiss="modal" aria-label="Close">
+									</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item active">会员制卡</li>
+	</ol><!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="block-title">会员制卡</h3>
+				<h5 id="card" style="color:red;margin-left: 20px;">读卡器请使用IE11浏览器进行操作。</h5>
+			</div>
+		</div>
+		<!-- /Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<!-- Form Item -->
+					<form action="{:url('Member/addcardForm')}" method="post">
+					<div class="tab-content" id="myTabContent">
+						<!--基本资料-->
+						<div class="lorvens-widget tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab" style="padding-top: 30px;">
+							<div class="input-group">
+								<div class="form-group row col-md-12">
+									<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">会员卡序列号：</label>
+									<div class="col-sm-4">
+										<input type="text" name= "cardId" id="cardId" required class="form-control" readonly placeholder="会员卡序列号">
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="form-group row col-md-12">
+										<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">会&nbsp;&nbsp;&nbsp;员&nbsp;&nbsp;卡&nbsp;&nbsp;&nbsp;号：</label>
+										<div class="col-sm-4">
+											<input type="text" name= "cardNo" required class="form-control"   placeholder="会员卡号">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="padding-left:50%;">
+								<button type="submit" class="btn btn-primary" >保存</button>
+								<a href="javascript:history.back(-1)" class="btn btn-primary" style="background-color: cornflowerblue;">返回</a>
+							</div>
+						</div>
+					</div>
+					</form>
+				</div>
+					<!-- /Form Item -->
+			</div>
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+</body>
+{block name='other'}
+<script>
+	var _url = "{:url('Member/isMembercard')}";
+	var _type = 1;
+</script>
+<script src="__ADMIN__/js/make_card.js"></script>
+{/block}

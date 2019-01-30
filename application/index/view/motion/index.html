@@ -22,7 +22,7 @@
 											</span>
 								</div>
 								<div class="modal-body">
-									<form action="{:url('disease/index')}" method="post">
+									<form action="{:url('motion/index')}" method="post">
 										<div class="form-group">
 											<input type="text" name="search" class="form-control" id="search-term" placeholder="请输入">
 											<button type="submit" class="btn btn-lorvens lorvens-bg">
@@ -75,8 +75,8 @@
 				<span class="ti-home"></span>
 			</a>
 		</li>
-		<li class="breadcrumb-item">病例分类</li>
-		<li class="breadcrumb-item active">病例分类管理</li>
+		<li class="breadcrumb-item">运动分类</li>
+		<li class="breadcrumb-item active">运动分类管理</li>
 	</ol>
 	<!-- /Breadcrumb -->
 	<!-- Main Content -->
@@ -84,7 +84,7 @@
 		<!-- Page Title -->
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="block-title">病例分类管理</h3>
+				<h3 class="block-title">运动分类管理</h3>
 			</div>
 		</div>
 		<!-- /Page Title -->
@@ -97,13 +97,12 @@
 						<a class="btn btn-primary" data-toggle="modal" data-target=".lorvens-modal-lg" style="margin-left: 10px;">
 							<i class="fa fa-search"></i>查询
 						</a>
-						<!--<a class="btn btn-primary" href="{:url('Disease/add')}" ><i class="fa fa-plus" aria-hidden="true"></i>添加病例</a>-->
 						<form action="{:url('Disease/add')}" method="post" id="subform" style="float: left;">
-							<input type="hidden" class="form-control" value="" id="citySel" onclick="showMenu();" placeholder="填写病例分类名称">
+							<input type="hidden" class="form-control" value="" id="citySel" onclick="showMenu();" placeholder="填写运动分类名称">
 							<input id="cityId" type="hidden" name="fenleiid" readonly value="" />
-							<a class="btn btn-primary" id="menuBtn" href="#" onclick="showMenu(); return false;" ><i class="fa fa-plus" aria-hidden="true"></i>添加病例</a>
+							<a class="btn btn-primary" id="menuBtn" href="#" onclick="showMenu(); return false;" ><i class="fa fa-plus" aria-hidden="true"></i>添加运动</a>
 							<div id="menuContent" class="menuContent" style="display:none; position: absolute;z-index: 1;">
-								<input type="text" class="form-control" value="" name="fenlei" placeholder="填写病例分类名称" style="height: 38px;">
+								<input type="text" class="form-control" value="" name="fenlei" placeholder="填写运动分类名称" style="height: 38px;">
 								<a class="btn btn-primary" href="#" onclick="formSubmit();" style="position: absolute;top: 0;right: 0px;">确认所属分类</a>
 								<ul id="treeDemo" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
 								<!--<div style="width: 100%;">-->
@@ -205,33 +204,12 @@
 			onCheck: onCheck
 		}
 	};
-	var url = "{:url('Disease/getDisease')}";
+	var url = "{:url('Motion/getDisease')}";
 	var zNodes = [];
 $.ajaxSettings.async = false;
 		$.post(url,function(data){
 			zNodes = $.parseJSON( data );
 		})
-//	var zNodes =[
-//		{id:1, pId:0, name:"北京"},
-//		{id:2, pId:0, name:"天津"},
-//		{id:3, pId:0, name:"上海"},
-//		{id:6, pId:0, name:"重庆"},
-//		{id:4, pId:0, name:"河北省"},
-//		{id:41, pId:4, name:"石家庄"},
-//		{id:42, pId:4, name:"保定"},
-//		{id:43, pId:4, name:"邯郸"},
-//		{id:44, pId:4, name:"承德"},
-//		{id:5, pId:0, name:"广东省"},
-//		{id:51, pId:5, name:"广州"},
-//		{id:52, pId:5, name:"深圳"},
-//		{id:53, pId:5, name:"东莞"},
-//		{id:54, pId:5, name:"佛山"},
-//		{id:6, pId:0, name:"福建省"},
-//		{id:61, pId:6, name:"福州"},
-//		{id:62, pId:6, name:"厦门"},
-//		{id:63, pId:6, name:"泉州"},
-//		{id:64, pId:6, name:"三明"}
-//	];
 	function beforeClick(treeId, treeNode) {
 		//console.log($.fn.zTree)
 		var zTree = $.fn.zTree.getZTreeObj("treeDemo");
@@ -275,7 +253,7 @@ $.ajaxSettings.async = false;
 	$.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
 	//添加病列
-	var urladd = "{:url('Disease/add')}";
+	var urladd = "{:url('Motion/add')}";
 	function formSubmit() {
 		var data = $('#subform').serialize();
 		$.post(urladd,{form:data},function(data){
@@ -284,8 +262,8 @@ $.ajaxSettings.async = false;
 		})
 	}
 
-	//删除病列
-	var urldel = "{:url('Disease/del')}";
+	//删除运动分类
+	var urldel = "{:url('Motion/del')}";
 	function del(id) {
 		$.post(urldel,{id:id},function(data){
 			alert(data);

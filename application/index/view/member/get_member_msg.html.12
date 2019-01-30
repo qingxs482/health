@@ -1,0 +1,170 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<object classid="clsid:5EB842AE-5C49-4FD8-8CE9-77D4AF9FD4FF" id="IdrControl1" width="100" height="0"></object>
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+									<span class="ti-close" data-dismiss="modal" aria-label="Close">
+									</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item active">会员知情同意书</li>
+	</ol><!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<div class="wrapper wrapper-content  animated fadeInRight">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="ibox">
+									<div class="ibox-title">
+										<h5>会员信息</h5><h5 id="card" style="color:red;margin-left: 20px;"></h5>
+									</div>
+
+									<div class="ibox-content">
+										<div class="form-group">
+											<label>卡号/身份证号/手机号：</label>
+											<input id="paramValue" class="form-control" style="width: 300px;display: inline;" />
+											<button type="button" onclick="getMemberInfo($.trim($('#paramValue').val()));" class="btn btn-success btn-search" style="margin-top: -5px;"><i class="fa fa-search"></i>查询</button>
+											<div style="color: gray; margin-top: 5px;">注：请刷会员卡/身份证或输入卡号/身份证号/手机号获取会员信息。</div>
+										</div>
+									</div>
+
+									<!-- 会员基本信息 -->
+
+
+									<!-- 会员基本信息模板 -->
+									<script type="text/jTemplate" id="memberInfoTemp">
+										<section class="panel-body">
+											<table class="table table-bordered ">
+												<caption>基本信息</caption>
+												<tbody class="">
+												<tr>
+													<td colspan="3"><strong>会员卡号：</strong>{$T.nutrId}</td>
+													<td colspan="3"><strong>姓名：</strong>{$T.name}</td>
+													<td colspan="3"><strong>性别：</strong>{#if $T.gender==0}女{#else}男{#/if}</td>
+													<td colspan="3"><strong>年龄：</strong>{$T.age}</td>
+												</tr>
+												<tr>
+													<td colspan="3"><strong>身份证号：</strong>{$T.idnum}</td>
+													<td colspan="3"><strong>民族：</strong>{$T.nation}</td>
+													<td colspan="3"><strong>文化程度：</strong>{#if $T.degree == 1}小学{#elseif $T.degree == 2}初中{#elseif $T.degree == 3}高中{#elseif $T.degree == 4}中专{#elseif $T.degree == 5}大专{#elseif $T.degree == 6}本科{#elseif $T.degree == 7}硕士{#elseif $T.degree == 8}博士{#else}无{#/if}</td>
+													<td colspan="3"><strong>职业：</strong>{$T.profession}</td>
+												</tr>
+												<tr>
+
+
+
+													<td colspan="3"><strong>电话号码：</strong>{$T.phonenum}</td>
+
+
+													<td colspan="9"><strong>家庭住址：</strong>{$T.address}
+														<input type="hidden" name="muserId" value="{$T.id}" id="muserId" />
+													</td>
+												</tr>
+												</tbody>
+											</table>
+										</section>
+									</script>
+									<div id="Memberbasic" style="display: none;">
+										<div class="ibox-content" id="memberInfo">
+
+										</div>
+									</div>
+
+									<div class="ibox-content" style="text-align: center;">
+										<p>
+											<button id="save" onclick="toHandle();" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</button>
+										</p>
+									</div>
+								</div>
+							</div><!-- end of ibox-content -->
+						</div><!-- end of ibox -->
+					</div>
+
+
+
+				</div>
+					<!-- /Form Item -->
+			</div>
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+</body>
+{block name='other'}
+<script src="__ADMIN__/js/make_card.js"></script>
+<script type="text/javascript">
+</script>
+{/block}

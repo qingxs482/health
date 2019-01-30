@@ -1,0 +1,748 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+									<span class="ti-close" data-dismiss="modal" aria-label="Close">
+									</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<link href="__ADMIN__/css/diet.css" rel="stylesheet">
+	<style type="text/css">
+		.row {
+			margin: 10px 0;
+		}
+		#diet td{
+			cursor: pointer;
+		}
+		td {
+			padding: 10px 25px 0;
+		}
+		#rate td {
+			padding: 0 25px;
+			line-height: 23px;
+		}
+		.img{
+			width: 90px;
+			height: 70px;
+		}
+		.gray {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			-ms-filter: grayscale(100%);
+			-o-filter: grayscale(100%);
+			filter: grayscale(100%);
+			filter: gray;
+		}
+		.text {
+			padding: 5px 0 0 0;
+			display: block;
+			width:90px;
+			text-align: center;
+		}
+		.question {
+			height: 25px;
+			width: 25px;
+			border-radius: 25px;
+			background-color: #1BA9DC;
+			display: inline-block;
+			color: #fff;
+			font: 16px bold;
+			text-align: center;
+			margin-right: 5px;
+		}
+		p {
+			padding: 5px 0;
+			font: 16px bold;
+		}
+
+		.w50{
+			width:50%;
+			text-align:center;
+			display: inline;
+		}
+
+		.labels {
+			background-color: #aaa;
+			color: #111;
+			border: 0px solid #676a6c;
+			border-radius: 5px;
+			width: 120px;
+			height:40px;
+			display: inline-block;
+			text-align: center;
+			line-height:40px;
+			font-size:14px;
+		}
+		.row .active {
+			background-color: #080;
+			color:#fff;
+		}
+	</style>
+
+
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item active">膳食评估</li>
+	</ol><!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<div class="ibox">
+						<div class="ibox-content" for="table_list_course">
+							<div class="ibox float-e-margins">
+								<form id="dietForm" class="form-horizontal m-t" method="post" action="{:url('Member/yinYangSave')}">
+									<div class="ibox-title" style="border-width: 0;">
+										<h5 style="display: inline;">膳食评估</h5>
+									</div>
+									<div class="ibox-content" class="col-sm-12">
+										<div class="row">
+											<div class="col-sm-8">
+												<ul id="diet">
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/1米饭.png" class="img" />
+														<input type="hidden" id="code" value="1" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">米饭</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/2稀饭.png" class="img" />
+														<input type="hidden" id="code" value="2" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">粥、稀饭</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/3馒头面包面条饼.png" class="img" />
+														<input type="hidden" id="code" value="3" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">面粉类食物</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/4甜食点心蛋糕.png" class="img" />
+														<input type="hidden" id="code" value="4" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">甜食、点心</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/5油条油饼.png" class="img" />
+														<input type="hidden" id="code" value="5" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">油炸食物</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/6包子饺子馄饨.png" class="img" />
+														<input type="hidden" id="code" value="6" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">有馅类食物</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/7糙米小米玉米薏米.png" class="img" />
+														<input type="hidden" id="code" value="7" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">粗杂粮</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/8薯类.png" class="img" />
+														<input type="hidden" id="code" value="8" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">薯类</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[50毫升=50, 100毫升=100, 150毫升=150, 200毫升=200, 250毫升=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/9牛奶酸奶奶粉.png" class="img" />
+														<input type="hidden" id="code" value="9" />
+														<input type="hidden" id="unit" value="毫升" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">牛奶、酸奶</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[半个=25, 2/3个=33, 一个=50, 两个=100, 三个=150]');">
+														<img alt="" src="__ADMIN__/images/yinyang/10鸡蛋鸭蛋.png" class="img" />
+														<input type="hidden" id="code" value="10" />
+														<input type="hidden" id="unit" value="个" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">鸡蛋</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/11畜肉.png" class="img" />
+														<input type="hidden" id="code" value="11" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">红肉类</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/12禽肉.png" class="img" />
+														<input type="hidden" id="code" value="12" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">家禽类</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/13加工肉.png" class="img" />
+														<input type="hidden" id="code" value="13" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">加工肉制品</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/14水产.png" class="img" />
+														<input type="hidden" id="code" value="14" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">河鲜类菜肴</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/15海产.png" class="img" />
+														<input type="hidden" id="code" value="15" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">海鲜类食物</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/16豆制品.png" class="img" />
+														<input type="hidden" id="code" value="16" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">豆制品类菜肴</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/17坚果.png" class="img" />
+														<input type="hidden" id="code" value="17" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">坚果类食物</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/18深色蔬菜.png" class="img" />
+														<input type="hidden" id="code" value="18" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">深色蔬菜类菜肴</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/19浅色蔬菜.png" class="img" />
+														<input type="hidden" id="code" value="19" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">浅色蔬菜类菜肴</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/20菌类.png" class="img" />
+														<input type="hidden" id="code" value="20" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">菌菇蔬菜</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/21水果.png" class="img" />
+														<input type="hidden" id="code" value="21" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">食用水果</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[半瓶及以下=325, 2/3瓶=433, 一瓶=650, 两瓶=1300, 三瓶以上=1950]');">
+														<img alt="" src="__ADMIN__/images/yinyang/22运动饮料.png" class="img" />
+														<input type="hidden" id="code" value="22" />
+														<input type="hidden" id="unit" value="瓶" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">甜饮品</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[半瓶及以下=325, 2/3瓶=433, 一瓶=650, 两瓶=1300, 三瓶以上=1950]');">
+														<img alt="" src="__ADMIN__/images/yinyang/23啤酒.png" class="img" />
+														<input type="hidden" id="code" value="23" />
+														<input type="hidden" id="unit" value="瓶" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">啤酒</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[50毫升=50, 100毫升=100, 150毫升=150, 200毫升=200, 250毫升=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/24黄酒.png" class="img" />
+														<input type="hidden" id="code" value="24" />
+														<input type="hidden" id="unit" value="酒杯" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">黄酒</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[50毫升=50, 100毫升=100, 150毫升=150, 200毫升=200, 250毫升=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/25白酒.png" class="img" />
+														<input type="hidden" id="code" value="25" />
+														<input type="hidden" id="unit" value="酒杯" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">白酒</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[50毫升=50, 100毫升=100, 150毫升=150, 200毫升=200, 250毫升=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/26红酒.png" class="img" />
+														<input type="hidden" id="code" value="26" />
+														<input type="hidden" id="unit" value="酒杯" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">红酒</label>
+													</li>
+
+													<li onclick="clickItem(this, '{6=每天1次}', '[1杯及以下=200, 1-4杯=500, 4-7杯=1100, 7-8杯=1500, 8杯及以上=1600]');">
+														<img alt="" src="__ADMIN__/images/yinyang/27水.png" class="img" />
+														<input type="hidden" id="code" value="27" />
+														<input type="hidden" id="unit" value="杯" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">水</label>
+													</li>
+
+													<li onclick="clickItem(this, '{0=从不吃, 1=每月少于1次, 2=每月1-3次, 3=每周1-2次, 4=每周3-4次, 5=每周5-6次, 6=每天1次, 7=每天2次, 8=每天3次以上}', '[一两及以下=50, 二两=100, 三两=150, 四两=200, 五两及以上=250]');">
+														<img alt="" src="__ADMIN__/images/yinyang/28汤菜.png" class="img" />
+														<input type="hidden" id="code" value="28" />
+														<input type="hidden" id="unit" value="两" />
+														<label class="text" style="padding-top:80px;display:inline-block; position:relative; bottom:0;">汤菜</label>
+													</li>
+
+												</ul>
+
+											</div>
+
+											<div class="col-sm-4">
+												<table>
+													<thead>
+													<tr>
+														<td colspan="2" style="height:100px; text-align:center; padding-bottom:20px;" align="center">
+															<img alt="" id="_diet" src="__ADMIN__/images/yinyang/1米饭.png" width="70%" />
+														</td>
+														<!-- <td colspan="2">
+                                                            <p><span class="question">?</span>你知道吗？</p>
+                                                            <div id="desc"></div>
+                                                        </td> -->
+													</tr>
+													</thead>
+													<tbody id="rate">
+													<tr>
+
+														<td id="ratetd0_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels active" >从不吃</span>
+																<input type="hidden" id="rate0" value="0" />
+															</div>
+														</td>
+
+
+														<td id="ratetd1_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每月少于1次</span>
+																<input type="hidden" id="rate1" value="1" />
+															</div>
+														</td>
+
+													</tr>
+													<tr>
+
+
+														<td id="ratetd2_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每月1-3次</span>
+																<input type="hidden" id="rate2" value="2" />
+															</div>
+														</td>
+
+
+														<td id="ratetd3_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每周1-2次</span>
+																<input type="hidden" id="rate3" value="3" />
+															</div>
+														</td>
+
+													</tr>
+													<tr>
+
+
+														<td id="ratetd4_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每周3-4次</span>
+																<input type="hidden" id="rate4" value="4" />
+															</div>
+														</td>
+
+
+														<td id="ratetd5_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每周5-6次</span>
+																<input type="hidden" id="rate5" value="5" />
+															</div>
+														</td>
+
+													</tr>
+													<tr>
+
+
+														<td id="ratetd6_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每天1次</span>
+																<input type="hidden" id="rate6" value="6" />
+															</div>
+														</td>
+
+
+														<td id="ratetd7_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每天2次</span>
+																<input type="hidden" id="rate7" value="7" />
+															</div>
+														</td>
+
+													</tr>
+													<tr>
+
+
+														<td id="ratetd8_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<div class="w50">
+																<span class="labels " >每天3次以上</span>
+																<input type="hidden" id="rate8" value="8" />
+															</div>
+														</td>
+
+
+													</tr>
+													</tbody>
+												</table>
+
+												<table style="margin-top:20px;">
+													<thead>
+													<tr>
+														<td colspan="2"><label id="intakeTitle">平均每次摄入量：</label></td>
+													</tr>
+													</thead>
+													<tbody id="intake">
+													<tr>
+														<td id="intaketd50_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<span class='labels'>一两及以下</span>
+															<input id="intake50" type="hidden" value="50" />
+														</td>
+														<td id="intaketd100_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<span class='labels'>二两</span>
+															<input id="intake100" type="hidden" value="100" />
+														</td>
+													</tr>
+													<tr>
+														<td id="intaketd150_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<span class='labels'>三两</span>
+															<input id="intake150" type="hidden" value="150" />
+														</td>
+														<td id="intaketd200_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<span class='labels'>四两</span>
+															<input id="intake200" type="hidden" value="200" />
+														</td>
+													</tr>
+													<tr>
+														<td id="intaketd250_1" style="cursor: pointer; text-align:center; padding-top:15px;" align="center">
+															<span class='labels'>五两及以上</span>
+															<input id="intake250" type="hidden" value="250" />
+														</td>
+														<td></td>
+													</tr>
+													</tbody>
+												</table>
+
+												<table style="margin-top:20px;">
+													<tr>
+														<td colspan="2" align="center" style="padding-left:60px;">
+															<button style="margin-right:30px;" type="button" class="btn btn-primary btn-save"><i class="fa fa-save"></i>保存</button>
+															<button type="button" class="btn btn-primary" onclick="javascript:location.href='history.ht?memberId=10000055073716'"><i class="fa fa-history"></i>历史记录</button>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<input type="hidden" id="memberId" value="10000055073716" />
+									<input type="hidden" id="foodVal" value="1" />
+									<input type="hidden" id="nameVal" value="米饭" />
+									<input type="hidden" id="pictureVal" value="__ADMIN__/images/yinyang/1米饭.png" />
+									<input type="hidden" id="rateVal" />
+									<input type="hidden" id="intakeVal" />
+									<input type="hidden" id="rateMemoVal" />
+									<input type="hidden" id="intakeMemoVal" />
+									<input type="hidden" id="unitVal" value="两" />
+								</form>
+							</div>
+							<!--
+                            <div class="ibox-tools" style="margin-top: -25px;">
+                                <button type="button" class="btn btn-primary btn-save"><i class="fa fa-save"></i>保存</button>
+                                <button type="button" class="btn btn-primary" onclick="javascript:location.href='history.ht?memberId=10000055073716'"><i class="fa "></i>历史记录</button>
+                            </div>
+                            -->
+						</div><!-- end of ibox-content -->
+					</div><!-- end of ibox -->
+				</div>
+
+			</div>
+					<!-- /Form Item -->
+			</div>
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+</body>
+{block name='other'}
+<script type="text/javascript">
+	$(function() {
+		var options={};
+		if(showResponse){
+			options.success=showResponse;
+		}
+		var frm=$('#dietForm').form();
+
+		$("button.btn-save").click(function() {
+			var result = {};
+			result.memberId = $("#memberId").val();
+			result.dietAssessmentList = diets;
+			var jsonStr = JSON.stringify(result);
+			frm.setData();
+			$('textarea[name="json"]',form).remove();
+			var json="<textarea style='display:none;' name='json'>"+jsonStr+"</textarea>";
+
+			frm.append($(json));
+			frm.ajaxForm(options);
+			if(frm.valid()){
+				$("button.btn-save").attr("disabled", true);
+				swal("正在保存。。。","请稍等。。。");
+				form.submit();
+			}
+		});
+	});
+
+	function showResponse(responseText) {
+//		var obj = ResultMessage(responseText);
+//		alert(obj);
+//		console.log(obj);
+		if (responseText.result == 1) {
+			swal({
+						title:"保存成功！",
+						text:responseText.memssage,
+						type:"success"},
+					function(){
+						setTimeout(function(){
+							window.location.href = history.back(-1);
+						},100);
+					});
+		} else {
+			$("button.btn-save").attr("disabled", false);
+			swal("保存失败！","服务器或网络异常。","error");
+		}
+	}
+</script>
+<script type="text/javascript">
+	var diets = [];
+	$(function(){
+		//初始化
+		$("#diet").find("li").each(function(){
+			var items = {};
+			items.name = $(this).find("label").text();
+			items.picture = $(this).find("img").attr("src");
+			items.foodCode = $(this).find("input[id='code']").val();
+			items.unit = $(this).find("input[id='unit']").val();
+			items.rateCode = "0";
+			items.rateMemo = "";
+			items.intake = "0";
+			items.intakeMemo = "";
+			diets.push(items);
+		});
+
+		rateClick();
+		intakeClick();
+	});
+
+	//设置食物图片点击事件
+	function clickItem(obj, rates, intakes) {
+		if (!$(obj).hasClass("selected")) {
+			$(obj).addClass('selected');
+		}
+		var code = $(obj).find("input[id='code']").val();
+
+		$("#_diet").attr("src", $(obj).find("img").attr("src"));
+		$("#desc").html("");
+		$("#nameVal").val($(obj).find("label").text());
+		$("#pictureVal").val($(obj).find("img").attr("src"));
+		$("#foodVal").val($(obj).find("input[id='code']").val());
+		$("#unitVal").val($(obj).find("input[id='unit']").val());
+		$("#rate").find("span").removeClass("active");
+		$("#intake").find("span").removeClass("active");
+		$("#rateVal").val("0");
+		$("#intakeVal").val("0");
+
+		if($(obj).find("input[id='code']").val() != 27) {
+			$("#intakeTitle").text("平均每次摄入量：");
+			var _rates = rates.substring(1, rates.length - 1);
+			var rateArr = _rates.split(",");
+			var trRate = "<tr>";
+			for (var i = 1; i <= rateArr.length; i++) {
+				var itemArr = rateArr[i - 1].split("=");
+				trRate += "<td id='ratetd" + $.trim(itemArr[0]) + "_" + code + "' style='cursor: pointer; text-align:center; padding-top:15px;' align='center'>";
+				trRate += "<div class='w50'><span class='labels'>" + itemArr[1] + "</span>";
+				trRate += "<input id='rate" + $.trim(itemArr[0]) + "' type='hidden' value='" + $.trim(itemArr[0]) + "' /></div></td>";
+				if (i % 2 == 0) {
+					trRate += "</tr><tr>";
+				}
+			}
+			trRate += "</tr>";
+			$("#rate").html(trRate);
+		} else {
+			$("#intakeTitle").text("平均每天摄入量：");
+			$("#rate").html("<tr><td></td><td></td></tr>");
+		}
+
+		var items = intakes.substring(1, intakes.length - 1);
+		var intakesArr = items.split(",");
+		var trIntake = "<tr>";
+		for (var i = 1; i <= intakesArr.length; i++) {
+			var itemArr = intakesArr[i - 1].split("=");
+			trIntake += "<td id='intaketd" + itemArr[1] + "_" + code + "' style='cursor: pointer; text-align:center; padding-top:15px;' align='center'>";
+			trIntake += "<span class='labels'>" + itemArr[0] + "</span>";
+			trIntake += "<input id='intake" + itemArr[1] + "' type='hidden' value='" + itemArr[1] + "' /></td>";
+			if (i % 2 == 0) {
+				trIntake += "</tr><tr>";
+			}
+		}
+		trIntake += "</tr>";
+		$("#intake").html(trIntake);
+
+		for (var i in diets) {
+			if(diets[i].name == $(obj).find("label").text()) {
+				$("#rate" + diets[i].rateCode).prev().addClass("active");
+				$("#intake" + diets[i].intake).prev().addClass("active");
+				break;
+			}
+		}
+		rateClick();
+		intakeClick();
+	}
+
+	//设置频次点击事件
+	function rateClick() {
+		$("#rate").find("td").each(function(i){
+			$(this).click(function(){
+				if(i == 0) {
+					$("#intake").find("td").parent().siblings("tr").find("span").removeClass("active");
+					$("#intake").find("td").siblings("td").find("span").removeClass("active");
+					$("#intakeVal").val("0");
+					$("#intakeMemoVal").val("");
+				}
+				$(this).parent().siblings("tr").find("span").removeClass("active");
+				$(this).siblings("td").find("span").removeClass("active");
+				$(this).find("span").addClass("active");
+				$("#rateVal").val($(this).find("input").val());
+				$("#rateMemoVal").val($(this).find("span").text());
+				serializeData();
+			});
+		});
+	}
+
+	//设置摄入量点击事件
+	function intakeClick() {
+		$("#intake").find("td").each(function(i){
+			$(this).click(function(){
+				var code = $(this).attr("id").split("_")[1];
+				//console.log($("#ratetd0_" + code).find("span").hasClass("active"));
+				if(code != 27 && $("#ratetd0_" + code).find("span").hasClass("active")) {
+					return;
+				}
+				$(this).parent().siblings("tr").find("span").removeClass("active");
+				$(this).siblings("td").find("span").removeClass("active");
+				$(this).find("span").addClass("active");
+				$("#intakeVal").val($(this).find("input").val());
+				$("#intakeMemoVal").val($(this).find("span").text());
+				serializeData();
+			});
+		});
+	}
+
+
+	//序列化数据
+	function serializeData() {
+		var item = {};
+		item.foodCode = $("#foodVal").val();
+		item.name = $("#nameVal").val();
+		item.picture = $("#pictureVal").val();
+		item.rateCode = $("#rateVal").val();
+		item.intake = $("#intakeVal").val();
+		item.rateMemo = $("#rateMemoVal").val();
+		item.intakeMemo = $("#intakeMemoVal").val();
+		item.unit = $("#unitVal").val();
+
+		for (var iter in diets) {
+			if(diets[iter].name == $("#nameVal").val()) {
+				diets.splice(iter, 1, item);
+				break;
+			}
+		}
+	}
+</script>
+
+{/block}

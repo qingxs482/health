@@ -16,3 +16,4 @@ function getTopCate($id,$model){
     $name = Db::name($model)->where('id',$id)->value('name');
     return $name == null ? '顶级分类' : $name;
 }
+

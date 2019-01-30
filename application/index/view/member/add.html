@@ -1,6 +1,7 @@
 {extend name="base:base" /}
 <!-- Page Content -->
 {block name='right'}
+<object classid="clsid:5EB842AE-5C49-4FD8-8CE9-77D4AF9FD4FF" id="IdrControl1" width="100" height="0"></object>
 <div id="content">
 	<!-- Top Navigation -->
 	<nav class="navbar navbar-default">
@@ -83,19 +84,31 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="block-title">会员档案添加</h3>
+				<h7 id="card" style="color:red;margin-left: 20px;">读卡器请使用IE11浏览器进行操作。</h7>
 			</div>
 		</div>
 		<!-- /Page Title -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="widget-area-2 lorvens-box-shadow">
-					男<input type="radio" name="radio" value="1" onclick="radio_click(this)">
-					女<input type="radio" name="radio" value="2" onclick="radio_click(this)">
-					未定义<input type="radio" name="radio" value="3" onclick="radio_click(this)">
 					<!-- Form Item -->
-					<h3 class="widget-title">基本档案</h3>
-					<div class="lorvens-widget">
-						<form action="{:url('Member/addMember')}" method="post">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
+								<font class="widget-title" style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本档案</font></font>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true"><font class="widget-title" style="vertical-align: inherit;"><font style="vertical-align: inherit;">慢病史及既往史</font></font></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><font class="widget-title" style="vertical-align: inherit;"><font style="vertical-align: inherit;">健康指标</font></font></a>
+						</li>
+					</ul>
+					<form action="{:url('Member/addMember')}" method="post">
+					<div class="tab-content" id="myTabContent">
+						<!--基本资料-->
+						<div class="lorvens-widget tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab" style="padding-top: 30px;">
 							<div class="input-group">
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">服务中心：</label>
@@ -114,7 +127,7 @@
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">会员编号：</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" name="bianhao" id="bianhao" readonly placeholder="会员编号">
+										<input type="text" class="form-control" name="bianhao" id="cardId" readonly placeholder="会员编号">
 									</div>
 								</div>
 								<div class="form-group row col-md-6">
@@ -147,46 +160,46 @@
 								</div>
 							</div>
 							<div class="input-group">
-							<div class="form-group row col-md-6">
-								<label class="col-sm-2 col-form-label" style="line-height:2.5;">性别：</label>
-								<div class="col-sm-10">
-									<select class="form-control" name="sex" id="sex">
-										<option>男</option>
-										<option>女</option>
-									</select>
+								<div class="form-group row col-md-6">
+									<label class="col-sm-2 col-form-label" style="line-height:2.5;">性别：</label>
+									<div class="col-sm-10">
+										<select class="form-control" name="sex" id="sex">
+											<option value="男">男</option>
+											<option value="女">女</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row col-md-6">
+									<label class="col-sm-2 col-form-label" style="line-height:2.5;">年龄：</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" name="age" id="age" placeholder="年龄">
+									</div>
 								</div>
 							</div>
-							<div class="form-group row col-md-6">
-								<label class="col-sm-2 col-form-label" style="line-height:2.5;">年龄：</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" name="age" id="age" placeholder="年龄">
+							<div class="input-group">
+								<div class="form-group row col-md-6">
+									<label class="col-sm-2 col-form-label" style="line-height:2.5;">生日：</label>
+									<div class="col-sm-10">
+										<input type="date" class="form-control" name="shengri" id="shengri" placeholder="生日">
+									</div>
+								</div>
+								<div class="form-group row col-md-6">
+									<label class="col-sm-2 col-form-label" style="line-height:2.5;">文化程度：</label>
+									<div class="col-sm-10">
+										<select class="form-control" name="wenhua" id="wenhua">
+											<option>无</option>
+											<option>小学</option>
+											<option>初中</option>
+											<option>高中</option>
+											<option>中专</option>
+											<option>大专</option>
+											<option>本科</option>
+											<option>硕士</option>
+											<option>博士</option>
+										</select>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="input-group">
-							<div class="form-group row col-md-6">
-								<label class="col-sm-2 col-form-label" style="line-height:2.5;">生日：</label>
-								<div class="col-sm-10">
-									<input type="date" class="form-control" name="shengri" id="shengri" placeholder="生日">
-								</div>
-							</div>
-							<div class="form-group row col-md-6">
-								<label class="col-sm-2 col-form-label" style="line-height:2.5;">文化程度：</label>
-								<div class="col-sm-10">
-									<select class="form-control" name="wenhua" id="wenhua">
-										<option>无</option>
-										<option>小学</option>
-										<option>初中</option>
-										<option>高中</option>
-										<option>中专</option>
-										<option>大专</option>
-										<option>本科</option>
-										<option>硕士</option>
-										<option>博士</option>
-									</select>
-								</div>
-							</div>
-						</div>
 							<div class="input-group">
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">电话：</label>
@@ -229,35 +242,27 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group row ">
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<div class="form-group row">
+								<button type="submit" class="btn btn-primary" style="margin: auto;">保存</button>
 							</div>
-						</form>
-					</div>
-					<!-- /Form Item -->
-					</div>
-
-					<!--慢性史-->
-				<div class="widget-area-2 lorvens-box-shadow">
-					<!-- Form Item -->
-					<h3 class="widget-title">慢病史及既往史</h3>
-					<div class="lorvens-widget">
-						<form action="{:url('Member/addMember')}" method="post">
+						</div>
+						<!--慢性史-->
+						<div class="lorvens-widget tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab" style="padding-top: 30px;">
 							<div class="input-group">
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">慢病史：</label>
 									<!--<div class="col-sm-10">-->
-										<!--<input type="text" name= "fuwuzhongxin" class="form-control" id="fuwuzhongxin" readonly placeholder="服务中心">-->
+									<!--<input type="text" name= "fuwuzhongxin" class="form-control" id="fuwuzhongxin" readonly placeholder="服务中心">-->
 									<!--</div>-->
 									<div class="col-sm-10" style="position:relative;">
-										<input type="text" class="form-control" value="" id="citySel" onclick="showMenu();" readonly placeholder="填写病例分类名称">
-										<input id="cityId" type="hidden" readonly value="" />
+										<input type="text" name="manbing" class="form-control" value="" id="citySel" onclick="showMenu();" readonly placeholder="填写病例分类名称">
+										<input id="cityId" name="manbingid" type="hidden" readonly value="" />
 										<a id="menuBtn" href="#" onclick="showMenu(); return false;" class="btn btn-primary"  style="position:absolute;top: 8px;right: 11px;height: 45px;">选择所属分类</a>
 										<div id="menuContent" class="menuContent" style="display:none; position: absolute;right:20px;top:53px;z-index: 1;">
 											<ul id="treeDemo" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
 											<!--<div style="width: 100%;">-->
-												<!--<a class="btn btn-primary" href="" style="margin-left: 18px;width: 47%;">确认</a>-->
-												<!--<a class="btn btn-primary" href="" style="width: 47%;">关闭</a>-->
+											<!--<a class="btn btn-primary" href="" style="margin-left: 18px;width: 47%;">确认</a>-->
+											<!--<a class="btn btn-primary" href="" style="width: 47%;">关闭</a>-->
 											<!--</div>-->
 										</div>
 									</div>
@@ -265,8 +270,8 @@
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">既往史：</label>
 									<div class="col-sm-10" style="position:relative;">
-										<input type="text" class="form-control" value="" id="citySel2" onclick="showMenu2();" readonly placeholder="填写病例分类名称">
-										<input id="cityId2" type="hidden" readonly value="" />
+										<input type="text" name="jiwang" class="form-control" value="" id="citySel2" onclick="showMenu2();" readonly placeholder="填写病例分类名称">
+										<input id="cityId2" name="jiwangid" type="hidden" readonly value="" />
 										<a id="menuBtn2" href="#" onclick="showMenu2(); return false;" class="btn btn-primary"  style="position:absolute;top: 8px;right: 11px;height: 45px;">选择所属分类</a>
 										<div id="menuContent2" class="menuContent" style="display:none; position: absolute;right:20px;top:53px;z-index: 1;">
 											<ul id="treeDemo2" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
@@ -282,8 +287,8 @@
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">家族史：</label>
 									<div class="col-sm-10" style="position:relative;">
-										<input type="text" class="form-control" value="" id="citySel3" onclick="showMenu3();" readonly placeholder="填写病例分类名称">
-										<input id="cityId3" type="hidden" readonly value="" />
+										<input type="text" name="jiazu" class="form-control" value="" id="citySel3" onclick="showMenu3();" readonly placeholder="填写病例分类名称">
+										<input id="cityId3" name="jiazuid" type="hidden" readonly value="" />
 										<a id="menuBtn3" href="#" onclick="showMenu3(); return false;" class="btn btn-primary"  style="position:absolute;top: 8px;right: 11px;height: 45px;">选择所属分类</a>
 										<div id="menuContent3" class="menuContent" style="display:none; position: absolute;right:20px;top:53px;z-index: 1;">
 											<ul id="treeDemo3" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
@@ -298,16 +303,16 @@
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">过敏史：</label>
 									<div class="col-sm-10">
 										<label class="col-sm-1.5 col-form-label" style="line-height:1.5;">
-											<input  onclick="radio_click(1)" name="guomin" type="radio"/>有
+											<input  onclick="radio_click(1)" value="1" name="guomin" type="radio"/>有
 										</label>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<label class="col-sm-1.5 col-form-label" style="line-height:1.5;">
-										<input checked="checked" onclick="radio_click(0)" name="guomin" type="radio"/>无
+											<input checked="checked" onclick="radio_click(0)" value="0" name="guomin" type="radio"/>无
 										</label>
-										<label class="col-sm-2 col-form-label" style="line-height:1.5;">&nbsp;&nbsp;&nbsp;过敏源：</label>
+										<label class="col-sm-2.5 col-form-label" style="line-height:1.5;">&nbsp;&nbsp;&nbsp;过敏源：</label>
 										<div class="col-sm-8" style="position:relative;float: right;">
-											<input type="text" class="form-control" value="" id="citySel4" onclick="showMenu4();" readonly placeholder="填写病例分类名称">
-											<input id="cityId4" type="hidden" readonly value="" />
+											<input type="text" name="guominmc" class="form-control" value="" id="citySel4" onclick="showMenu4();" readonly placeholder="填写病例分类名称">
+											<input id="cityId4" name="guominmcid" type="hidden" readonly value="" />
 											<a id="menuBtn4" href="#" onclick="showMenu4(); return false;" class="btn btn-primary"  style="position:absolute;top: -1px;right: 11px;height: 45px;">选择所属分类</a>
 											<div id="menuContent4" class="menuContent" style="display:none; position: absolute;right:20px;top:53px;z-index: 1;">
 												<ul id="treeDemo4" class="ztree" style="margin-top:0; width: 400px;height: 300px;overflow-y: scroll;"></ul>
@@ -332,11 +337,12 @@
 									</label>
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;用药类别：</label>
 									<div class="col-sm-2" style="position:relative;float: right;">
-										<select class="form-control" name="wenhua" id="yongyaoleibie">
-											<option>降压药</option>
-											<option>降脂药</option>
-											<option>降糖药</option>
-											<option>其它</option>
+										<select class="form-control" name="yongyaoleixing" id="yongyaoleibie">
+											<option value="0">请选择</option>
+											<option value="降压药">降压药</option>
+											<option value="降脂药">降脂药</option>
+											<option value="降糖药">降糖药</option>
+											<option value="其它">其它</option>
 										</select>
 									</div>
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;药品名称：</label>
@@ -354,12 +360,12 @@
 										<input value="0" checked="checked" name="xiyan" type="radio">无
 									</label>
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;吸烟年限：</label>
-									<div class="col-sm-2" style="position:relative;float: right;">
+									<div class="col-sm-1" style="position:relative;float: right;">
 										<input value="" checked="checked" class="form-control" name="xiyanshijian" type="text">
 									</div>
-									<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">年</label>
+									<label class="col-sm-1 col-form-label" style="line-height:2.5;">年</label>
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;吸烟频率：</label>
-									<div class="col-sm-2" style="position:relative;float: right;">
+									<div class="col-sm-1" style="position:relative;float: right;">
 										<input value="" checked="checked" class="form-control" name="xiyanpinlv" type="text">
 									</div>
 									<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">根/天</label>
@@ -378,11 +384,11 @@
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;饮酒类别：</label>
 									<div class="col-sm-2" style="position:relative;float: right;">
 										<select class="form-control" name="yinjiuleibie" id="yinjiuleibie">
-											<option>请选择</option>
-											<option>白酒</option>
-											<option>红酒</option>
-											<option>黄酒</option>
-											<option>其它</option>
+											<option value="0">请选择</option>
+											<option value="白酒">白酒</option>
+											<option value="红酒">红酒</option>
+											<option value="黄酒">黄酒</option>
+											<option value="其它">其它</option>
 										</select>
 									</div>
 									<label class="col-sm-2.5 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;平均每天饮酒量：</label>
@@ -411,10 +417,10 @@
 							<div class="input-group">
 								<div class="form-group row col-md-6">
 									<label class="col-sm-2 col-form-label" style="line-height:2.5;">运动情况：</label>
-									<div class="col-sm-2" style="position:relative;float: right;">
+									<div class="col-sm-1" style="position:relative;float: right;">
 										<input value="" checked="checked" class="form-control" name="yundong" type="text">
 									</div>
-									<label class="col-sm-1 col-form-label" style="line-height:2.5;">次/周</label>
+									<label class="col-sm-0.5 col-form-label" style="line-height:2.5;">次/周</label>
 									<label class="col-sm-2.5 col-form-label" style="line-height:2.5;">&nbsp;&nbsp;&nbsp;每周锻炼时长：</label>
 									<div class="col-sm-1" style="position:relative;float: right;">
 										<input value="" style="width: 60px;"  class="form-control" name="yundongxiaoshi" type="text">
@@ -476,157 +482,296 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group row ">
-								<button type="submit" class="btn btn-primary">Submit</button> 
+							<div class="form-group row">
+								<button type="submit" class="btn btn-primary" style="margin: auto;">保存</button>
+							</div>
+							<!-- /Form Item -->
+						</div>
+						<!--健康指标-->
+						<div class="lorvens-widget tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"  style="padding-top: 30px;">
+							<div class="input-group">
+								<table  class="form-group row col-md-12" style="width:100%">
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="number" style="width: 120px;float: left" name= "shengao" onblur="getItemVal('BMI');" class="form-control" id="shengao">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">cm</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >体重：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="number" style="width: 120px;float: left"  onblur="getItemVal('BMI');" name= "tizhong" class="form-control" id="tizhong">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">kg</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >BMI：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="number" readonly style="width: 120px;float: left"  name= "bmi" class="form-control" id="BMI">
+											</div>
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "shengaopingjia" class="form-control" id="appraiseBMI">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">BMI：18.5~23.9</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >腰围：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "yaowei" class="form-control" id="yaowei" onblur="getItemVal('WAIST');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">cm</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >臀围：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "tunwei" class="form-control" id="tunwei" onblur="getItemVal('WAIST');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">cm</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >腰臀比：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" readonly style="width: 120px;float: left"  name= "yaotunbi" class="form-control" id="whr">
+											</div>
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "yaoweipingjia" class="form-control" id="appraiseWAIST">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >收缩压：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "shousuoya" class="form-control" id="shousuoya" onblur="getItemVal('PRESSURE');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmHg</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >舒张压：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "shuzhangya" class="form-control" id="shuzhangya" onblur="getItemVal('PRESSURE');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmHg</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "xueyapingjia" class="form-control" id="appraisePRESSURE">
+												<label class="col-sm-0.5 col-form-label" style="float: left">
+													<p style="margin: 0;font-size: 12px;">收缩压：90~140mmHg</p> <p  style="margin: 0;font-size: 12px;">舒张压：60~90mmHg</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >甘油三脂：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" onblur="getItemVal('TCG');" style="width: 120px;float: left"  name= "ganyousanzhi" class="form-control" id="tg">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >总胆固醇：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" onblur="getItemVal('TCG');" style="width: 120px;float: left"  name= "zongdanguchun" class="form-control" id="tc">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "ganyoupingjia" class="form-control" id="appraiseTCG">
+												<label class="col-sm-0.5 col-form-label" style="float: left">
+													<p style="margin: 0;font-size: 12px;">甘油三酯：0.56~1.70mmol/L</p> <p style="margin: 0;font-size: 12px;">总胆固醇：2.84~5.20mmol/L</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >高密度脂蛋白：</label>
+												<input type="text" style="width: 120px;float: left"  name= "gaodanbai" class="form-control" id="hdl" onblur="getItemVal('HDL');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >低密度脂蛋白：</label>
+												<input type="text" style="width: 120px;float: left"  name= "didanbai" class="form-control" id="ldl" onblur="getItemVal('LDL');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "danbaipingjia" class="form-control" id="appraiseHDL">
+												<label class="col-sm-0.5 col-form-label" style="float: left">
+													<p style="margin: 0;font-size: 12px;">高密度脂蛋白：0.91~1.76mmol/L</p> <p style="font-size: 12px;margin: 0;">低密度脂蛋白：2.10~3.10mmol/L</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >空腹血糖：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "kongfuxuetang" class="form-control" id="fpg" onblur="getItemVal('PG');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >餐后2H血糖：&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "canhouxuetang" class="form-control" id="hpg" onblur="getItemVal('PG');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">mmol/L</label>
+											</div>
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "xuetangpingjia" class="form-control" id="appraisePG">
+												<label class="col-sm-0.5 col-form-label" style="float: left">
+													<p style="margin: 0;font-size: 12px;">空腹血糖：3.9~6.1mmol/L</p> <p style="margin: 0;font-size: 12px;">餐后2小时血糖：4.4~7.8mmol/L</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >血尿酸：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												<input type="text" style="width: 120px;float: left"  name= "xueniaosuan" class="form-control" id="bua" onblur="getItemVal('BUA');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">μmol/L</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "niaosuanpingjia" class="form-control" id="appraiseBUA">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">
+													<p>血尿酸：150~420μmol/L</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<!--<tr>-->
+									<!--<td style="width: 320px;">-->
+									<!--<div class="col-sm-0.5">-->
+									<!--<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >B超：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+									<!--<input type="text" style="width: 120px;float: left"  name= "bchao" class="form-control" id="shengao">-->
+									<!--</div>-->
+									<!--</td>-->
+									<!--<td style="width: 320px;">-->
+									<!--</td>-->
+									<!--<td style="width: 400px;">-->
+									<!--</td>-->
+									<!--<td style="width: 500px;">-->
+									<!--<div class="col-sm-0.5">-->
+									<!--<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>-->
+									<!--<input type="text" style="width: 120px;float: left"  name= "bchaopingjia" class="form-control" id="shengao">-->
+									<!--</div>-->
+									<!--</td>-->
+									<!--</tr>-->
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >糖化血红蛋白：</label>
+												<input type="text" style="width: 120px;float: left"  name= "xuehong" class="form-control" id="gh" onblur="getItemVal('HBALC');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">%</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "xuehongpingjia" class="form-control" id="appraiseHBALC">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">
+													<p>糖化血红蛋白：4%~6%</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >同型半胱氨酸：</label>
+												<input type="text" style="width: 120px;float: left"  name= "tongsuan" class="form-control" id="hcy" onblur="getItemVal('HCY');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">μmol/L</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "tongsuanpingjia" class="form-control" id="appraiseHCY">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">
+													<p>同型半胱氨酸：5~10μmol/L</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 320px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >骨密度：T-值：</label>
+												<input type="text" style="width: 120px;float: left"  name= "gumidu" class="form-control" id="bmdt" onblur="getItemVal('BMD_T');">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">%</label>
+											</div>
+										</td>
+										<td style="width: 320px;">
+										</td>
+										<td style="width: 400px;">
+										</td>
+										<td style="width: 500px;">
+											<div class="col-sm-0.5">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left;" >评价：</label>
+												<input type="text" readonly style="width: 160px;float: left"  name= "gumidupingjia" class="form-control" id="appraiseBMD_T">
+												<label class="col-sm-0.5 col-form-label" style="line-height:2.5;float: left">
+													<p>T-值：-1≤T</p>
+												</label>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="form-group row">
+								<button type="submit" class="btn btn-primary" style="margin: auto;">保存</button>
+							</div>
+						</div>
 					</div>
-					<!-- /Form Item -->
+					</form>
 				</div>
-				<!--健康指标-->
-				<div class="widget-area-2 lorvens-box-shadow">
-					<!-- Form Item -->
-					<h3 class="widget-title">健康指标</h3>
-					<div class="lorvens-widget">
-						<form action="{:url('Member/addMember')}" method="post">
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">服务中心</label>
-									<div class="col-sm-10">
-										<input type="text" name= "fuwuzhongxin" class="form-control" id="fuwuzhongxin" readonly placeholder="服务中心">
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">工作室</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="gongzuoshi" id="gongzuoshi" readonly="readonly" placeholder="工作室">
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">会员编号</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="bianhao" id="bianhao" readonly placeholder="会员编号">
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">职业</label>
-									<div class="col-sm-10">
-										<select class="form-control" name="zhiye" id="zhiye">
-											<option>无</option>
-											<option>白领</option>
-											<option>公务员</option>
-											<option>工人</option>
-											<option>农民</option>
-											<option>科研人员</option>
-											<option>其它</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">姓名</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="name" id="name" placeholder="姓名">
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">身份证号</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="idnum" id="idnum" placeholder="身份证号">
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">性别</label>
-									<div class="col-sm-10">
-										<select class="form-control" name="sex" id="sex">
-											<option>男</option>
-											<option>女</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">年龄</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="age" id="age" placeholder="年龄">
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">生日</label>
-									<div class="col-sm-10">
-										<input type="date" class="form-control" name="shengri" id="shengri" placeholder="生日">
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">文化程度</label>
-									<div class="col-sm-10">
-										<select class="form-control" name="wenhua" id="wenhua">
-											<option>无</option>
-											<option>小学</option>
-											<option>初中</option>
-											<option>高中</option>
-											<option>中专</option>
-											<option>大专</option>
-											<option>本科</option>
-											<option>硕士</option>
-											<option>博士</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">电话</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="tel" id="tel" placeholder="电话">
-									</div>
-								</div>
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">建档日期</label>
-									<div class="col-sm-10">
-										<input type="date" class="form-control" name="riqi" id="riqi" placeholder="建档日期">
-									</div>
-								</div>
-							</div>
-							<div class="input-group" data-toggle="distpicker">
-								<div class="form-group row col-md-4">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">省份</label>
-									<div class="col-sm-6">
-										<select class="form-control" name="province" id="province1"></select>
-									</div>
-								</div>
-								<div class="form-group row col-md-4">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">市辖</label>
-									<div class="col-sm-6">
-										<select class="form-control" name="city" id="city1"></select>
-									</div>
-								</div>
-								<div class="form-group row col-md-4">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">市辖</label>
-									<div class="col-sm-6">
-										<select class="form-control" name="area" id="district1"></select>
-									</div>
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="form-group row col-md-6">
-									<label class="col-sm-2 col-form-label" style="line-height:2.5;">详细地址</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="addr" id="addr" placeholder="详细地址">
-									</div>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
-						</form>
-					</div>
 					<!-- /Form Item -->
-				</div>
 			</div>
 		</div>
 	</div>
@@ -651,8 +796,186 @@
 <!--无限级分类js-->
 <script type="text/javascript" src="__ADMIN__/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="__ADMIN__/js/jquery.ztree.excheck.js"></script>
+<script>
+	var _url = "{:url('Member/isMembercard')}";
+	var _type = 2;
+</script>
+<script src="__ADMIN__/js/make_card.js"></script>
 <script type="text/javascript">
 
+
+	/* 获取健康指标对应项结果 */
+	function getItemVal(type) {
+		if(type == "BMI") {		//BMI
+			var height = $.trim($("#shengao").val());
+			var weight = $.trim($("#tizhong").val());
+			if(height != "" && weight != "") {
+				value1 = (weight / Math.pow(height / 100, 2)).toFixed(2);
+				$("#BMI").val(value1);
+				if(value1 < 18.5){
+					$("#appraiseBMI").val('过低');
+				}else if(value1 >= 18.5 && value1 <= 23.9){
+					$("#appraiseBMI").val('正常');
+				}else if(value1 >= 24 && value1 <= 27){
+					$("#appraiseBMI").val('过重');
+				}else if(value1 >= 28 && value1 <= 32){
+					$("#appraiseBMI").val('肥胖');
+				}else if(value1 > 32){
+					$("#appraiseBMI").val('非常肥胖');
+				}
+			}
+		} else if(type == "WAIST") {	//腰围
+			var waist = $.trim($("#yaowei").val());
+			var hip = $.trim($("#tunwei").val());
+//			var sex = $("#gender").val();
+			if(waist != "" && hip != "") {
+				yao = (waist / hip).toFixed(2);
+				$("#whr").val(yao);
+				if(yao > 0.9){
+					$("#appraiseWAIST").val('肥胖');
+				}else if(yao < 0.9){
+					$("#appraiseWAIST").val('正常');
+				}
+			}
+		} else if(type == "PRESSURE") {	 //血压
+			var sp = $.trim($("#shousuoya").val());
+			var dp = $.trim($("#shuzhangya").val());
+			if(sp != "" && dp != "") {
+				if((sp <= 130 && sp >= 90) &&  (dp <= 85 && dp >=60)){
+					$("#appraisePRESSURE").val('正常血压');
+				}else if((sp <= 139 && sp >= 130) && (dp <= 89 && dp >= 85)){
+					$("#appraisePRESSURE").val('正常高值');
+				}else if((sp <= 159 && sp > 140) && (dp <= 99 && dp >= 90)){
+					$("#appraisePRESSURE").val('一级高血压');
+				}else if((sp <= 179 && sp >= 160) && (dp <= 109 && dp >= 100)){
+					$("#appraisePRESSURE").val('二级高血压');
+				}else if(sp >= 180 && dp >= 110){
+					$("#appraisePRESSURE").val('三级高血压');
+				}else if(sp >= 140 && dp < 90){
+					$("#appraisePRESSURE").val('单纯收缩性高血压');
+				}else if(sp < 90){
+					$("#appraisePRESSURE").val('低血压');
+				}else if(dp < 60){
+					$("#appraisePRESSURE").val('低血压');
+				}
+			}
+		} else if(type == "PG") {	//血糖
+			var fpg = $.trim($("#fpg").val());
+			var hpg = $.trim($("#hpg").val());
+			if(fpg != "" && hpg != "") {
+				if(fpg < 3.9 || hpg < 4.4){
+					$("#appraisePG").val("异常血糖");
+					return;
+				}else if((fpg >= 3.9 && fpg <= 6) && (hpg >= 4.4 && hpg <= 7.8)){
+					$("#appraisePG").val("正常血糖");
+				}else if((fpg > 3.9 && fpg < 7) && (hpg < 7.8 && hpg > 4.4)){
+					$("#appraisePG").val("空腹血糖受损");
+				}else if((fpg > 6 && fpg < 7) && (hpg > 7.8 && hpg < 11)) {
+					$("#appraisePG").val("糖耐量减低");
+				}else if(hpg > 11 || fpg > 6.9) {
+					$("#appraisePG").val("糖尿病");
+				}
+			}
+		} else if(type == "BUA") {	//血尿酸
+			var bua = $.trim($("#bua").val());
+			if(bua != "") {
+				if(bua >= 150 && bua <= 420){
+					$("#appraiseBUA").val("正常");
+				}else{
+					$("#appraiseBUA").val("非正常");
+				}
+			}
+		} else if(type == "HBALC") {	//糖化血红蛋白
+			var gh = $.trim($("#gh").val());
+			if(gh != "") {
+				if(gh >= 10){
+					$("#appraiseHBALC").val('控制差');
+				}else if(gh >= 9 && gh < 10){
+					$("#appraiseHBALC").val('控制不好');
+				}else if(gh >= 8 && gh < 9){
+					$("#appraiseHBALC").val('可以接受');
+				}else if(gh >= 6 && gh < 8){
+					$("#appraiseHBALC").val('控制理想');
+				}else if(gh >= 4 && gh < 6){
+					$("#appraiseHBALC").val('正常值');
+				}else if(gh < 4){
+					$("#appraiseHBALC").val('非正常');
+				}
+			}
+		} else if(type == "TCG") { //总胆固醇和甘油三脂
+			var tg = $.trim($("#tc").val());
+			var tc = $.trim($("#tg").val());
+			if(tc != "" && tg != "") {
+				if((tc >= 0.56 && tc <= 1.70) && (tg >= 2.84 && tg <= 5.20)){
+					$("#appraiseTCG").val('正常');
+				}else if(tg > 5.20 && (tc >= 0.56 && tc < 1.70)){
+					$("#appraiseTCG").val('高胆固醇血症');
+				}else if((tg >= 2.84 &&  tg < 5.20) && tc > 1.70){
+					$("#appraiseTCG").val('高甘油三脂血症');
+				}else if((tg >= 2.84 && tg > 5.20) && (tc >= 0.56 && tc > 1.70)){
+					$("#appraiseTCG").val('混合型高脂血症');
+				}else{
+					$("#appraiseTCG").val('非正常');
+				}
+			}
+		} else if(type == "HDL" || type=="LDL"){	//高密度脂蛋白
+			var hdl = $.trim($("#hdl").val());
+			var ldl = $.trim($("#ldl").val());
+			if(hdl != "") {
+				if(hdl<0.91){
+					$("#appraiseHDL").val("低高密度脂蛋白胆固醇血症");
+					return;
+				}else if(hdl>1.76){
+					$("#appraiseHDL").val("非正常");
+					return;
+				}else{
+					$("#appraiseHDL").val("正常");
+				}
+			}
+			if(ldl != "") {
+				if(ldl<2.10){
+					$("#appraiseHDL").val("非正常");
+					return;
+				}else if(ldl>3.10){
+					$("#appraiseHDL").val("非正常");
+					return;
+				}else{
+					$("#appraiseHDL").val("正常");
+				}
+			}
+		} else if(type == "DKA") {	//血酮
+			var dka = $.trim($("#dka").val());
+			if(dka != "") {
+				params.value1 = dka;
+				params.flag = 1;
+				getResult(params);
+			}
+		} else if(type == "HCY"){	//同型半胱氨酸
+			var hcy = $.trim($("#hcy").val());
+			if(hcy != "") {
+				if(hcy < 5){
+					$("#appraiseHCY").val("↓低于参考值");
+				}else if(hcy > 10){
+					$("#appraiseHCY").val("↑超过参考值");
+				}else if(hcy > 5 && hcy < 10){
+					$("#appraiseHCY").val("正常");
+				}
+			}
+		} else if(type == "BMD_T") {	//骨密度T值
+			var bmdt = $.trim($("#bmdt").val());
+			if(bmdt != "") {
+				if(bmdt >= 1){
+					$("#appraiseBMD_T").val("非正常范围值");
+				}else if(bmdt < 1 && bmdt > -1){
+					$("#appraiseBMD_T").val("正常");
+				}else if(bmdt >= -2.5 && bmdt < -1){
+					$("#appraiseBMD_T").val("骨量低");
+				}else if(bmdt < -2.6){
+					$("#appraiseBMD_T").val("骨质疏松症");
+				}
+			}
+		}
+	}
 	var setting = {
 		check: {
 			enable: true,
