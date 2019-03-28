@@ -106,7 +106,7 @@ class Train extends Publica
         if($result){
             $this->success('保存成功');
         }
-        $this->error('保存失败');
+        $this->error('保存失败00');
     }
 
     //基本档案保存
