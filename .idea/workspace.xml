@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a1bf912-7eb5-45b4-80ed-e0aae0019fc6" name="Default" comment="Default">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/ueditor/php/upload/image/20190328/1553734627.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/ueditor/php/upload/image/20190328/1553736506.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/controller/Train.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/member/yyls.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/member/yysslist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/addcard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/card_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/fen_xi_bao_gao.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/get_member_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/get_member_msg.html.12" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/member_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/member_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/tongyi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/yin_yang_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/yyls.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/test模板/yysslist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/addcard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/card_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/fen_xi_bao_gao.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/get_member_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/get_member_msg.html.12" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/member_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/member_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/tongyi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/yin_yang_msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/yyls.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/train/yysslist.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config.php" afterPath="$PROJECT_DIR$/application/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/controller/Index.php" afterPath="$PROJECT_DIR$/application/index/controller/Index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/controller/Member.php" afterPath="$PROJECT_DIR$/application/index/controller/Member.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/base/base.html" afterPath="$PROJECT_DIR$/application/index/view/base/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/member/fen_xi_bao_gao.html" afterPath="$PROJECT_DIR$/application/index/view/member/fen_xi_bao_gao.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/member/get_member_msg.html" afterPath="$PROJECT_DIR$/application/index/view/member/get_member_msg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/member/yin_yang_msg.html" afterPath="$PROJECT_DIR$/application/index/view/member/yin_yang_msg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/route.php" afterPath="$PROJECT_DIR$/application/route.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lanzhou.sql" afterPath="$PROJECT_DIR$/lanzhou.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/.htaccess" afterPath="$PROJECT_DIR$/public/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/train/add.html" afterPath="$PROJECT_DIR$/application/index/view/train/add.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,19 +14,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Train.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Train.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/index/controller/Train.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="104" column="8" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+            <state relative-caret-position="370">
+              <caret line="108" column="30" lean-forward="false" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
               <folding>
                 <element signature="e#38#72#0#PHP" expanded="true" />
                 <element signature="e#171#1338#0#PHP" expanded="false" />
                 <element signature="e#2010#2828#0#PHP" expanded="false" />
-                <element signature="e#3342#7237#0#PHP" expanded="false" />
-                <element signature="e#7255#8004#0#PHP" expanded="false" />
-                <element signature="e#8107#8501#0#PHP" expanded="false" />
-                <element signature="e#8531#9175#0#PHP" expanded="false" />
+                <element signature="e#3346#7241#0#PHP" expanded="false" />
+                <element signature="e#7259#8008#0#PHP" expanded="false" />
+                <element signature="e#8111#8505#0#PHP" expanded="false" />
+                <element signature="e#8535#9179#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/train/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="183" column="94" lean-forward="false" selection-start-line="183" selection-start-column="94" selection-end-line="183" selection-end-column="94" />
+            <state relative-caret-position="303">
+              <caret line="257" column="46" lean-forward="true" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
               <folding>
                 <element signature="n#nav#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -172,8 +132,8 @@
         <option value="$PROJECT_DIR$/application/index/view/base/base.html" />
         <option value="$PROJECT_DIR$/public/static/ueditor/ueditor.config.js" />
         <option value="$PROJECT_DIR$/application/index/view/train/index.html" />
-        <option value="$PROJECT_DIR$/application/index/view/train/add.html" />
         <option value="$PROJECT_DIR$/application/index/controller/Train.php" />
+        <option value="$PROJECT_DIR$/application/index/view/train/add.html" />
       </list>
     </option>
   </component>
@@ -193,6 +153,7 @@
     <option name="width" value="1386" />
     <option name="height" value="788" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -231,7 +192,7 @@
               <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
@@ -239,7 +200,6 @@
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="base" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
@@ -253,32 +213,6 @@
               <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
               <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
-              <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
-              <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ueditor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
-              <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ueditor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="health_management" type="b2602c69:ProjectViewProjectNode" />
-              <item name="health_management" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="runtime" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -353,34 +287,60 @@
       <option name="project" value="LOCAL" />
       <updated>1535959493126</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="错误更新">
+      <created>1553782720220</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553782720220</updated>
+    </task>
+    <task id="LOCAL-00004" summary="视图增加修改">
+      <created>1553782854705</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553782854705</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58835000" />
+    <option name="totallyTimeSpent" value="61687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="消息" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +354,9 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="adsf" />
     <MESSAGE value="sdfsd" />
-    <option name="LAST_COMMIT_MESSAGE" value="sdfsd" />
+    <MESSAGE value="错误更新" />
+    <MESSAGE value="视图增加修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="视图增加修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -440,7 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="29" column="10" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="29" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -449,7 +410,7 @@
         <state relative-caret-position="4140">
           <caret line="180" column="24" lean-forward="false" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="24" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1086#3121#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -642,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="29" column="10" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="29" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,18 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/base/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="36" column="57" lean-forward="false" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/static/ueditor/ueditor.parse.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-921">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="801" column="25" lean-forward="false" selection-start-line="801" selection-start-column="9" selection-end-line="801" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -789,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -813,14 +759,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="129" column="51" lean-forward="false" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/view/base/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2787">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#5;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#7;n#ul#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Train.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="108" column="30" lean-forward="false" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+          <folding>
+            <element signature="e#38#72#0#PHP" expanded="true" />
+            <element signature="e#171#1338#0#PHP" expanded="false" />
+            <element signature="e#2010#2828#0#PHP" expanded="false" />
+            <element signature="e#3346#7241#0#PHP" expanded="false" />
+            <element signature="e#7259#8008#0#PHP" expanded="false" />
+            <element signature="e#8111#8505#0#PHP" expanded="false" />
+            <element signature="e#8535#9179#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/train/add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="183" column="94" lean-forward="false" selection-start-line="183" selection-start-column="94" selection-end-line="183" selection-end-column="94" />
+        <state relative-caret-position="303">
+          <caret line="257" column="46" lean-forward="true" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
           <folding>
             <element signature="n#nav#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -838,22 +814,6 @@
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/controller/Train.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="104" column="8" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
-          <folding>
-            <element signature="e#38#72#0#PHP" expanded="true" />
-            <element signature="e#171#1338#0#PHP" expanded="false" />
-            <element signature="e#2010#2828#0#PHP" expanded="false" />
-            <element signature="e#3342#7237#0#PHP" expanded="false" />
-            <element signature="e#7255#8004#0#PHP" expanded="false" />
-            <element signature="e#8107#8501#0#PHP" expanded="false" />
-            <element signature="e#8531#9175#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
