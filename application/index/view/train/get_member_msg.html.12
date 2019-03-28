@@ -84,55 +84,77 @@
 			<div class="col-md-12">
 				<div class="widget-area-2 lorvens-box-shadow">
 					<div class="wrapper wrapper-content  animated fadeInRight">
+						<div class="row">
+							<div class="col-sm-12">
 								<div class="ibox">
 									<div class="ibox-title">
-										<h3>会员信息</h3><h5 id="card" style="color:red;margin-left: 20px;"></h5>
+										<h5>会员信息</h5><h5 id="card" style="color:red;margin-left: 20px;"></h5>
 									</div>
 
 									<div class="ibox-content">
-										<form action="" method="post">
 										<div class="form-group">
 											<label>卡号/身份证号/手机号：</label>
-											<input id="paramValue" class="form-control" name="search" style="width: 300px;display: inline;" />
-											<button type="submit"  class="btn btn-success btn-search" style="margin-top: -5px;"><i class="fa fa-search"></i>查询</button>
+											<input id="paramValue" class="form-control" style="width: 300px;display: inline;" />
+											<button type="button" onclick="getMemberInfo($.trim($('#paramValue').val()));" class="btn btn-success btn-search" style="margin-top: -5px;"><i class="fa fa-search"></i>查询</button>
 											<div style="color: gray; margin-top: 5px;">注：请刷会员卡/身份证或输入卡号/身份证号/手机号获取会员信息。</div>
 										</div>
-										</form>
 									</div>
-									{notempty name="member"}
-									<section class="panel-body">
-										<table class="table table-bordered ">
-											<h4>基本信息</h4>
-											<tbody class="">
-											<tr>
-												<td colspan="3"><strong>会员卡号：</strong>{$member.bianhao}</td>
-												<td colspan="3"><strong>姓名：</strong>{$member.name}</td>
-												<td colspan="3"><strong>性别：</strong>{$member.sex}</td>
-												<td colspan="3"><strong>年龄：</strong>{$member.age}</td>
-											</tr>
-											<tr>
-												<td colspan="3"><strong>身份证号：</strong>{$member.idnum}</td>
-												<!--<td colspan="3"><strong>民族：</strong></td>-->
-												<td colspan="6"><strong>文化程度：</strong>{$member.edu}</td>
-												<td colspan="3"><strong>职业：</strong>{$member.zhiye}</td>
-											</tr>
-											<tr>
-												<td colspan="3"><strong>电话号码：</strong>{$member.tel}</td>
-												<td colspan="12"><strong>家庭住址：</strong>{$member.province}{$member.city}{$member.area}{$member.area}</td>
-											</tr>
-											</tbody>
-										</table>
-									</section>
-									{/notempty}
+
+									<!-- 会员基本信息 -->
+
+
+									<!-- 会员基本信息模板 -->
+									<script type="text/jTemplate" id="memberInfoTemp">
+										<section class="panel-body">
+											<table class="table table-bordered ">
+												<caption>基本信息</caption>
+												<tbody class="">
+												<tr>
+													<td colspan="3"><strong>会员卡号：</strong>{$T.nutrId}</td>
+													<td colspan="3"><strong>姓名：</strong>{$T.name}</td>
+													<td colspan="3"><strong>性别：</strong>{#if $T.gender==0}女{#else}男{#/if}</td>
+													<td colspan="3"><strong>年龄：</strong>{$T.age}</td>
+												</tr>
+												<tr>
+													<td colspan="3"><strong>身份证号：</strong>{$T.idnum}</td>
+													<td colspan="3"><strong>民族：</strong>{$T.nation}</td>
+													<td colspan="3"><strong>文化程度：</strong>{#if $T.degree == 1}小学{#elseif $T.degree == 2}初中{#elseif $T.degree == 3}高中{#elseif $T.degree == 4}中专{#elseif $T.degree == 5}大专{#elseif $T.degree == 6}本科{#elseif $T.degree == 7}硕士{#elseif $T.degree == 8}博士{#else}无{#/if}</td>
+													<td colspan="3"><strong>职业：</strong>{$T.profession}</td>
+												</tr>
+												<tr>
+
+
+
+													<td colspan="3"><strong>电话号码：</strong>{$T.phonenum}</td>
+
+
+													<td colspan="9"><strong>家庭住址：</strong>{$T.address}
+														<input type="hidden" name="muserId" value="{$T.id}" id="muserId" />
+													</td>
+												</tr>
+												</tbody>
+											</table>
+										</section>
+									</script>
+									<div id="Memberbasic" style="display: none;">
+										<div class="ibox-content" id="memberInfo">
+
+										</div>
+									</div>
+
 									<div class="ibox-content" style="text-align: center;">
 										<p>
-											<!--<button id="save" onclick="toHandle();" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</button>-->
-											<a id="save" href="{$lastUrl}" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</a>
+											<button id="save" onclick="toHandle();" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</button>
 										</p>
 									</div>
 								</div>
 							</div><!-- end of ibox-content -->
 						</div><!-- end of ibox -->
+					</div>
+
+
+
+				</div>
 					<!-- /Form Item -->
 			</div>
 		</div>

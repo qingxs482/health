@@ -230,7 +230,8 @@ return [
         'setcookie' => true,
     ],
     'view_replace_str'=>[
-        '__ADMIN__'=>'/public/static',
+        //'__ADMIN__'=>'/public/static',
+        '__ADMIN__'=>'/static',
     ],
     //分页配置
     'paginate'               => [

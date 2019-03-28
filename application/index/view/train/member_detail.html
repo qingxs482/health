@@ -1,0 +1,263 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+											<span class="ti-close" data-dismiss="modal" aria-label="Close">
+											</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="../index/index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item">会员管理</li>
+		<li class="breadcrumb-item active">会员基本资料</li>
+	</ol>
+	<!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+
+		</div>
+		<!-- /Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow" style="padding: 20px 333px;">
+					<h3 class="block-title" style="background-color: #eee;">会员基本资料</h3>
+					<div class="panel panel-default">
+						<section class="panel-body">
+							<table class="table table-bordered ">
+
+								<tbody class="">
+								<tr>
+								<tr>
+									<td colspan="3"><strong>会员编号：</strong>{$member.bianhao}</td>
+									<td colspan="3"><strong>建档日期：</strong>{$member.jdtime|date='Y-m-d',###}</td>
+									<td colspan="3"><strong>姓名：</strong>{$member.name}</td>
+									<td rowspan="5" colspan="3" style="width: 100px;height: 132px;">
+
+										<img  alt="" src="__ADMIN__/images/user.jpg" />
+
+
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>性别：</strong>{$member.sex}</td>
+									<td colspan="3"><strong>身份证号：</strong>{$member.idnum}</td>
+									<td colspan="3"><strong>年龄：</strong>{$member.age}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>职业：</strong>{$member.zhiye}</td>
+									<td colspan="6"><strong>文化程度：</strong>{$member.edu}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>电话号码：</strong>{$member.tel}</td>
+									<td colspan="6"><strong>详细住址：</strong>{$member.province}{$member.city}{$member.area}{$member.addr}</td>
+								</tr>
+								</tbody>
+							</table>
+
+							<table class="table table-bordered mt-14 ">
+								<h3 class="block-title" style="background-color: #eee;">慢病史及过往史</h3>
+								<tbody class="">
+								<tr>
+									<td colspan="12"><strong>慢病史：</strong>{$member.mbs}</td>
+								</tr>
+								<tr>
+									<td colspan="12"><strong>既往史：</strong>{$member.jws}</td>
+								</tr>
+								<tr>
+									<td colspan="12"><strong>家族史：</strong>{$member.jzs}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>过敏史：</strong>{$member['gms'] == '1' ? '有' : '否'}</td>
+									<td colspan="9"><strong>过敏源：</strong>{$member.gmsy}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>用药史：</strong>{$member['yys'] == 1 ? '有' : '否'}</td>
+									<td colspan="4"><strong>用药类别：</strong>{$member['yylb']}</td>
+									<td colspan="5"><strong>药品名称：</strong>{$member['ypmc']}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>吸烟史：</strong>{$member['xys'] == '1' ? '有' : '否'}</td>
+									<td colspan="4"><strong>吸烟年限：</strong>{$member['xysj']}</td>
+									<td colspan="5"><strong>吸烟频率：</strong>{$member['xypl']}根/天</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>饮酒史：</strong>{$member['yjs'] == '1' ? '有' : '否'}</td>
+									<td colspan="4"><strong>饮酒类别：{$member['yjlb']}</strong></td>
+									<td colspan="5"><strong>平均每天饮酒：</strong>{$member['yjl']}ml</td>
+								</tr>
+								<tr>
+									<td colspan="3" rowspan="2"><strong>运动情况：</strong></td>
+									<td colspan="4"><strong>每周锻炼几次：</strong>{$member['ydcs']}次</td>
+									<td colspan="5"><strong>每周锻炼时长：</strong>
+										{$member['ydxs'] == NULL ? 0 : $member['ydxs']}小时
+										{$member['ydfz'] == NULL ? 0 : $member['ydfz']}分钟
+									</td>
+								</tr>
+								<tr>
+									<td colspan="9"><strong>锻炼项目：</strong>{$member.dlxm}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>睡眠情况：</strong>{$member['smqk'] == '1' ? '良好' : '较差'}</td>
+									<td colspan="9">
+										<strong>睡眠时长：</strong>{$member.smsc}小时
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>饮食习惯：</strong>{$member.ysxg}</td>
+									<td colspan="6"><strong>就餐人数：</strong>{$member.jcrs}人</td>
+								</tr>
+								<tr>
+									<td colspan="12"><strong>婚姻状况：</strong>{$member.huny}</td>
+								</tr>
+								</tbody>
+							</table>
+
+							<table class="table table-bordered mt-14 ">
+								<h3 class="block-title" style="background-color: #eee;">健康指标</h3>
+								<tbody class="">
+								<tr>
+									<td colspan="3"><strong>身高：</strong>{$member.sg}cm</td>
+									<td colspan="3"><strong>体重：</strong>{$member.tz}kg</td>
+									<td colspan="3"><strong>BMI：</strong>{$member.bmi}</td>
+									<td colspan="3"><strong>评价：</strong>{$member.sgopj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>腰围：</strong>{$member.yw}cm</td>
+									<td colspan="3"><strong>臀围：</strong>{$member.tw}cm</td>
+									<td colspan="3"><strong>腰臀比：</strong>{$member.ytb}</td>
+									<td colspan="3"><strong>评价：</strong>{$member.ytpj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>收缩压：</strong>{$member.ssy}mmHg</td>
+									<td colspan="3"><strong>舒张压：</strong>{$member.szy}mmHg</td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.xypj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>甘油三脂：</strong>{$member.gysz}mmol/L</td>
+									<td colspan="3"><strong>总胆固醇：</strong>{$member.zdgc}mmol/L</td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.sgpj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>高密度脂蛋白：</strong>{$member.gdb}mmol/L</td>
+									<td colspan="3"><strong>低密度脂蛋白：</strong>{$member.ddb}mmol/L</td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.dbpj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>空腹血糖：</strong>{$member.kfxt}mmol/L</td>
+									<td colspan="3"><strong>餐后2H血糖：</strong>{$member.chxt}mmol/L</td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.xtpj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>血尿酸：</strong>{$member.xns}μmol/L</td>
+									<td colspan="3"></td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.xnspj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>糖化血红蛋白：</strong>{$member.xhdb}%</td>
+									<td colspan="3"></td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.xhdbpj}</td>
+								</tr>
+
+								<tr>
+									<td colspan="3"><strong>同型半胱氨酸：</strong>{$member.ts}μmol/L</td>
+									<td colspan="3"></td>
+									<td colspan="3"></td>
+									<td colspan="3"><strong>评价：</strong>{$member.tspj}</td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>骨密度：T-值：</strong>{$member.gmd}%</td>
+									<td colspan="3"></td>
+									<td colspan="3"></td>
+									<td><strong>评价：</strong>{$member.gmdpj}</td>
+								</tr>
+								<tr>
+								</tr>
+								</tbody>
+							</table>
+							<div class="mt-14 text-center ft-buttons">
+								<a href="javascript:history.back(-1)" class="btn btn-primary" style="background-color: cornflowerblue;">返回</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}

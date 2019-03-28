@@ -1,0 +1,318 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<object classid="clsid:5EB842AE-5C49-4FD8-8CE9-77D4AF9FD4FF" id="IdrControl1" width="100" height="0"></object>
+<style>
+	.dis-play{
+		display: none;
+	}
+</style>
+<!--<link rel="stylesheet" href="__ADMIN__/ueditor/css/jquery-jvectormap.css">-->
+<script type="text/javascript">
+
+</script>
+<!-- Sweet Alert  -->
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+									<span class="ti-close" data-dismiss="modal" aria-label="Close">
+									</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item active">训练营添加</li>
+	</ol><!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<!-- /Page Title -->
+		<div id="alert-t" class="dis-play" style="position: fixed; left:600px; top: 50px; width: 400px; margin: 0 auto; z-index: 999" >
+			<a href="#" class="close" data-dismiss="alert">
+				&times;
+			</a>
+			<strong>警告！</strong>
+			<div class="aler_con">
+				 无内容
+			</div>
+		</div>
+
+		</button>
+		<div class="row">
+			<form id="form" method="post" target="_blank">
+				<div class="panel panel-default" >
+					<div class="panel-body" style="padding: 20px; padding-left: 120px;">
+						<div class="form-group">
+						    <div class="row" >
+								<div class="col-md-2" style="height: 30px;line-height: 30px;text-align: right">
+									<label for="ConferenceName">会议名称</label>
+								</div>
+								<div class="col-md-9" style="height:30px;" >
+									<input style="height: 30px; width: 722px;" type="text" class="form-control" id="ConferenceName" placeholder="会议名称"  name='train_name' >
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+								<div class="row" style="margin-top: 15px;">
+								<div class="col-md-2" style="height: 30px;line-height: 30px;text-align: right">
+									<label for="ConferenceCon">会议内容</label>
+								</div>
+								<div class="col-md-9"  >
+									<script type="text/plain" id="myEditor" name="content">
+										<p>欢迎使用UEditor！</p>
+									</script>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-2" style="height: 30px;line-height: 30px; text-align: right;">
+									<label for="beizhu">备注：</label>
+								</div>
+								<div class="col-md-9" style="height:30px;" >
+									<input style="height: 30px; width: 722px;" type="text" class="form-control" id="beizhu" placeholder="备注"  name="train_bei" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-2" style="height: 30px;line-height: 30px; text-align: right;">
+									<label for="beizhu">会议时间：</label>
+								</div>
+								<div class="col-md-9" style="height:30px;" >
+									 <div class="row">
+										  <div class="col-md-5">
+											  <input type="datetime-local"  required name="start_at"/>
+										  </div>
+										 <div class="col-md-5">
+											 <input type="datetime-local"  required name="end_at" />
+										 </div>
+									 </div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-2" style="height: 30px;line-height: 30px; text-align: right;">
+									<label for="beizhu">工作室：</label>
+								</div>
+								<div class="col-md-9" style="" >
+									<table style="border: 0;">
+										<thead>
+											<tr>
+												<th><input type="checkbox"  name="workRoom" /></th>
+												<th>全选</th>
+											</tr>
+										</thead>
+										<!--<tfoot>-->
+											<!--<tr>-->
+												<!--<td>Sum</td>-->
+												<!--<td>$180</td>-->
+											<!--</tr>-->
+										<!--</tfoot>-->
+										<tbody>
+											<tr>
+												<td><input type="checkbox" name="from_studio[]" value="超能南滨河东路店" />> </td>
+												<td>超能南滨河东路店</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="from_studio[]" value="超能南滨河东路1店"></td>
+												<td>超能南滨河东路1店</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-8">
+
+								</div>
+								<div class="col-md-4">
+									<div class="row">
+										<div class="col-md-6">
+											<button id="ajax-submit" type="button" class="btn btn-primary">提交</button>
+											<!--<input  class="btn btn-primary" type="submit" value="提交">-->
+										</div>
+										<div class="col-md-6">
+											<button type="button" class="btn btn-success">返回</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</form>
+
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+<!--<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>-->
+<script src="__ADMIN__/js/jquery-3.2.1.min.js"></script>
+<!--<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>-->
+<script src="__ADMIN__/js/distpicker.data.js"></script>
+<script src="__ADMIN__/js/distpicker.js"></script>
+<script src="__ADMIN__/js/main.js"></script>
+<!-- /Page Content -->
+{/block}
+</body>
+{block name='other'}
+<!--无限级分类-->
+<link rel="stylesheet" href="__ADMIN__/css/demo.css" type="text/css">
+<link rel="stylesheet" href="__ADMIN__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+
+
+<!--无限级分类-->
+<!--无限级分类js-->
+<script type="text/javascript" src="__ADMIN__/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/jquery.ztree.excheck.js"></script>
+<script>
+	var _url = "{:url('Member/isMembercard')}";
+	var _type = 2;
+
+</script>
+<script src="__ADMIN__/js/make_card.js"></script>
+<script type="text/javascript">
+    var editor_a = UE.getEditor('myEditor',{initialFrameHeight:400,initialFrameWidth:722});
+    //--自动切换提交地址----
+    var doc=document,
+        version = editor_a.options.serverUrl || editor_a.options.imageUrl || "php",
+        form = doc.getElementById("form");
+
+
+    if(version.match(/php/)){
+        form.action="{:url('Train/addTrain')}";
+    }else{
+        form.action="./server/getContent.asp";
+    }
+
+    function formSubmit() {
+        var data = $('#form').serialize();
+        if(version.match(/php/)){
+            var ajaxUrl = "{:url('Train/addTrain')}";
+            $.post(ajaxUrl,data,function(data){
+                alert(data);
+                console.log(data);
+//              window.location.reload();
+            })
+        }else{
+            var ajaxUrl = "{:url('Train/addTrain')}";
+            $.post(ajaxUrl,data,function(data){
+                alert(data);
+//            window.location.reload();
+            })
+        }
+    }
+
+    $("#ajax-submit").click(function () {
+        formSubmit();
+    });
+
+//    if(version.match(/php/)){
+//        var ajaxUrl = "{:url('Train/addTrain')}";
+////        form.action = ajaxUrl;
+//        //添加病列
+//    }else{
+//        var ajaxUrl = "{:url('Train/addTrain')}";
+////        form.action = ajaxUrl;
+//	}
+
+
+
+//	$( '#ConferenceName' ).focus( function(){
+//		$('#alert-t').addClass('dis-play').removeClass('alert').removeClass('alert-warning');
+//    } )
+
+    $( '#ConferenceName').blur( function(){
+        var inputVal = $('#ConferenceName').val() ;
+        if(inputVal == ''){
+//            alert(inputVal)
+            $("#alert-t").removeClass('dis-play').addClass('in');
+            $('#alert-t').addClass('alert');
+            $('#alert-t').addClass('alert-warning');
+            window.setTimeout(function(){
+//                $(".alert-warning").alert('close');
+                $('#alert-t').addClass('dis-play')
+            },2000);
+		}
+    } )
+
+
+</script>
+
+
+
+
+{/block}

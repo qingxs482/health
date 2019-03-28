@@ -76,63 +76,50 @@
 				<span class="ti-home"></span>
 			</a>
 		</li>
-		<li class="breadcrumb-item active">会员知情同意书</li>
+		<li class="breadcrumb-item active">会员制卡</li>
 	</ol><!-- /Breadcrumb -->
 	<!-- Main Content -->
 	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="block-title">会员制卡</h3>
+				<h5 id="card" style="color:red;margin-left: 20px;">读卡器请使用IE11浏览器进行操作。</h5>
+			</div>
+		</div>
+		<!-- /Page Title -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="widget-area-2 lorvens-box-shadow">
-					<div class="wrapper wrapper-content  animated fadeInRight">
-								<div class="ibox">
-									<div class="ibox-title">
-										<h3>会员信息</h3><h5 id="card" style="color:red;margin-left: 20px;"></h5>
-									</div>
-
-									<div class="ibox-content">
-										<form action="" method="post">
-										<div class="form-group">
-											<label>卡号/身份证号/手机号：</label>
-											<input id="paramValue" class="form-control" name="search" style="width: 300px;display: inline;" />
-											<button type="submit"  class="btn btn-success btn-search" style="margin-top: -5px;"><i class="fa fa-search"></i>查询</button>
-											<div style="color: gray; margin-top: 5px;">注：请刷会员卡/身份证或输入卡号/身份证号/手机号获取会员信息。</div>
-										</div>
-										</form>
-									</div>
-									{notempty name="member"}
-									<section class="panel-body">
-										<table class="table table-bordered ">
-											<h4>基本信息</h4>
-											<tbody class="">
-											<tr>
-												<td colspan="3"><strong>会员卡号：</strong>{$member.bianhao}</td>
-												<td colspan="3"><strong>姓名：</strong>{$member.name}</td>
-												<td colspan="3"><strong>性别：</strong>{$member.sex}</td>
-												<td colspan="3"><strong>年龄：</strong>{$member.age}</td>
-											</tr>
-											<tr>
-												<td colspan="3"><strong>身份证号：</strong>{$member.idnum}</td>
-												<!--<td colspan="3"><strong>民族：</strong></td>-->
-												<td colspan="6"><strong>文化程度：</strong>{$member.edu}</td>
-												<td colspan="3"><strong>职业：</strong>{$member.zhiye}</td>
-											</tr>
-											<tr>
-												<td colspan="3"><strong>电话号码：</strong>{$member.tel}</td>
-												<td colspan="12"><strong>家庭住址：</strong>{$member.province}{$member.city}{$member.area}{$member.area}</td>
-											</tr>
-											</tbody>
-										</table>
-									</section>
-									{/notempty}
-									<div class="ibox-content" style="text-align: center;">
-										<p>
-											<!--<button id="save" onclick="toHandle();" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</button>-->
-											<a id="save" href="{$lastUrl}" type="button" class="btn btn-primary" disabled="disabled"><i class="fa"></i>前往操作页面继续操作</a>
-										</p>
+					<!-- Form Item -->
+					<form action="{:url('Member/addcardForm')}" method="post">
+					<div class="tab-content" id="myTabContent">
+						<!--基本资料-->
+						<div class="lorvens-widget tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab" style="padding-top: 30px;">
+							<div class="input-group">
+								<div class="form-group row col-md-12">
+									<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">会员卡序列号：</label>
+									<div class="col-sm-4">
+										<input type="text" name= "cardId" id="cardId" required class="form-control" readonly placeholder="会员卡序列号">
 									</div>
 								</div>
-							</div><!-- end of ibox-content -->
-						</div><!-- end of ibox -->
+								<div class="input-group">
+									<div class="form-group row col-md-12">
+										<label class="col-sm-1.5 col-form-label" style="line-height:2.5;">会&nbsp;&nbsp;&nbsp;员&nbsp;&nbsp;卡&nbsp;&nbsp;&nbsp;号：</label>
+										<div class="col-sm-4">
+											<input type="text" name= "cardNo" required class="form-control"   placeholder="会员卡号">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="padding-left:50%;">
+								<button type="submit" class="btn btn-primary" >保存</button>
+								<a href="javascript:history.back(-1)" class="btn btn-primary" style="background-color: cornflowerblue;">返回</a>
+							</div>
+						</div>
+					</div>
+					</form>
+				</div>
 					<!-- /Form Item -->
 			</div>
 		</div>
@@ -142,7 +129,9 @@
 {/block}
 </body>
 {block name='other'}
-<script src="__ADMIN__/js/make_card.js"></script>
-<script type="text/javascript">
+<script>
+	var _url = "{:url('Member/isMembercard')}";
+	var _type = 1;
 </script>
+<script src="__ADMIN__/js/make_card.js"></script>
 {/block}

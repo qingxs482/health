@@ -6,9 +6,11 @@ class Index extends Publica
 {
     public function index()
     {
+//        echo  9999;die;
         return $this->fetch();
     }
-    public function ceshi(){
+    public function ceshi()
+    {
         return $this->fetch();
     }
 }

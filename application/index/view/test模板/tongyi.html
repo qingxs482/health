@@ -1,0 +1,257 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<object classid="clsid:5EB842AE-5C49-4FD8-8CE9-77D4AF9FD4FF" id="IdrControl1" width="100" height="0"></object>
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+									<span class="ti-close" data-dismiss="modal" aria-label="Close">
+									</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item active">会员知情同意书</li>
+	</ol><!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<div class="wrapper wrapper-content  animated fadeInRight">
+						<div class="ibox">
+							<div class="ibox-content" for="table_list_course">
+
+								<div class="ibox float-e-margins">
+									<form id="memberVolunteerSignForm" class="form-horizontal m-t" method="post" >
+										<div style="text-align: center;">
+											<h1>国家专项建设基金课题项目</h1>
+											<h1>“课题反馈员”知情同意书</h1>
+										</div>
+										<br>
+										<div class="main" deep="5">
+											<p class="second">随着我国生活水平的提高以及饮食环境的变化，城市居民的代谢病发病率不断上升，导致居民生活压力加大，国家医疗负担加重。通过健康评估、健康风险预测、膳食及运动进行干预是战胜慢性病的最根本手段之一。</p>
+											<p class="second">健康事业是举国关注的事业，习近平总书记2016年明确提出：没有人民健康，就没有全面小康。国家发改委在健康产业的给予极大关注，正生集团得到了相关部门的大力支持和认可，并荣获5000万国家专项建设基金。</p>
+											<p class="second">为使此项基金更好发挥作用，正生研究院2017年正式申报“植物源功能性多肽制备技术开发及产业化示范”（简称营养多肽与慢病干预）课题项目，首批投入500万基金，选拨“课题反馈员”。</p>
+											<p class="second">参加本项目后，首先要填写饮食结构调查表，然后通过身体情况检测及危险因素评估对您的中风、心梗等风险进行评估。</p>
+											<p class="second">如果评估结果提示您为高危险人群，我们将邀请您参加健康管理，对您的饮食及运动进行指导和干预，并实时的对您的身体状况进行检测。</p>
+											<p><strong>课题反馈员选拨条件：</strong>有八大代谢病之一，有积极的健康意识。
+											</p><p><strong>课题反馈员权利：</strong>可免费参加课题反馈员专属体验；</p>
+											<p class="second" style="margin-left: 11rem;">可享受课题反馈员专属慢病干预福利。</p>
+											<p><strong>课题反馈员义务：</strong>定期为课题上报真实身体信息。</p>
+											<p><strong>参加本项目的风险：</strong></p>
+											<p class="second">1.任何健康监测手段，都不是百分之百准确的，会产生一定的误差。如果监测数据显示有异常情况发生，需要进一步的确诊；</p>
+											<p class="second">2.代谢病的发病原因是复杂的，包括饮食、运动、环境、遗传等因素，健康管理的方法对于由生活方式引起的相关代谢类疾病有很大的作用，但对于由遗传因素等特殊因素引起的相关问题则需要根据具体情况进行判断；</p>
+											<p class="second">3.饮食、运动调理代谢病的健康管理手段，需要长期、持续的坚持，对于不能够坚持、完整配合，经常有旅游、出差等活动的人群，其改善效果会受到影响。</p>
+											<p><strong>保密原则：</strong>您的所有信息(流行病学信息、检查结果等)我们都会为您保密。信息由专人负责保管和录入。保证不会泄露给第三方。</p>
+											<p><strong>自愿原则：</strong>参加本项目完全是自愿的。在项目的任何阶段，都有权利随时离开项目。</p>
+											<p><strong>自我声明：</strong>我己阅读本知情同意书，理解全部相关情况，一些问题已经同项目组工作人员进行了讨论并得到满意答复，我同意参加这项研究。</p>
+											<p><strong>工作人员声明：</strong>我已经向调查对象宣传和解释了这份知情同意书，他/她已经理解并同意参加本项目。</p>
+
+											<table cellpadding="0" cellspacing="0" border="2" type="main" style="width:100%;margin-top:30px;">
+												<tbody><tr>
+													<td style="height:150px; width:10% ;background-color:#eee; padding:0px 20px; text-align: center; vertical-align: middle;font-weight: 600;">
+														知情同意书签字
+													</td>
+													<td style="height:150px; width:40% ;" valign="middle" align="center" onclick="_open(1)">
+														<img id="memberMarkImg" height="150px" src="http://cloud.zeacen.com/images/xzb/qz.png">
+													</td>
+												</tr>
+												<input type="hidden" id="userid" name="id" value="10000055759699" data-filtered="filtered">
+												<input type="hidden" id="memberMark" name="memberMark" value="" data-filtered="filtered">
+												<input type="hidden" id="createMark" name="createMark" value="" data-filtered="filtered">
+												</tbody></table>
+										</div>
+									</form>
+
+								</div><!-- end of ibox-content -->
+								<div style="text-align: center;">
+									<p>
+
+										<button type="button" class="btn btn-info btn-back" onclick="history.go(-1)"><i class="fa fa-mail-reply-all"></i>返回</button>
+									</p>
+								</div>
+
+							</div><!-- end of ibox -->
+
+						</div>
+					</div>
+					<!--签字区模态框  -->
+					<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content animated bounceInRight">
+								<div class="modal-header">
+									<input type="hidden" id="falg">
+									<button type="button" onclick="save_mark()" class="btn btn-primary">保存签名</button>
+									<button type="button" onclick="reMark()" class="btn btn-primary">重新签名</button>
+									<button type="button" class="close" onclick="_close()"><span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+									</button>
+								</div>
+								<div class="modal-body" style="text-align: center">
+									<object id="HWPenSign" name="HWPenSign" classid="clsid:E8F5278C-0C72-4561-8F7E-CCBC3E48C2E3" width="400" height="300" style="padding: 1px;"></object>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+
+						penwidth = 3;
+						var obj;
+						window.onload = function(){
+							obj = document.getElementById("HWPenSign");
+							obj.HWSetBkColor(0xE0F8E0);
+							obj.HWSetCtlFrame(2, 0x000000);
+						}
+						//打开设备
+						function _open(falg) {
+							$("#falg").val(falg);
+							reMark();
+							$("#myModal").modal('show');
+							res = obj.HWInitialize();
+						}
+						//关闭设备
+						function _close() {
+							var stream;
+							stream = obj.HWFinalize();
+							$("#myModal").modal('hide');
+						}
+						//重新签名
+						function reMark() {
+							obj.HWClearPenSign();
+						}
+						//保存签名
+						function save_mark() {
+							var stream;
+							stream = obj.HWGetBase64Stream(2);
+							if(null != stream && "" != $.trim(stream) ){
+								var src = "data:image/jpg;base64,"+stream;
+								var falg = $("#falg").val()
+								if(falg == 1){
+									$("#memberMarkImg").attr("src", src);
+									$("#memberMark").val(src);
+								}
+								if(falg == 2){
+									$("#createMarkImg").attr("src", src);
+									$("#createMark").val(src);
+								}
+							}
+							//alert(src);
+							$("#myModal").modal('hide');
+
+							var memberMark = $("#memberMark").val();
+							var userid = $("#userid").val();
+							if(memberMark == ""){
+								swal("参加人未签名！","","warning");
+								return false;
+							}
+							var _url = "{:url('Member/tjty')}";
+							$.ajax({
+								async : false,
+								type : 'post',
+								dataType : 'json',
+								url :_url,
+								data : {
+									userid : userid,
+									image : memberMark,
+								},
+								success : function(data) {
+									if(data.msg == 1){
+										swal("签字成功！","","success");
+									}else if(data.msg == -2){
+										swal("签字失败！","","warning");
+									}
+								},
+								error : function() {
+									swal("签字失败！", "服务器或网络出现异常。", "error");
+								}
+							});
+							_close();
+						}
+
+						//确定
+						function signComplete() {
+							save_mark();
+						}
+
+					</script>
+
+				</div>
+					<!-- /Form Item -->
+			</div>
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+</body>
+{block name='other'}
+<script src="__ADMIN__/js/make_card.js"></script>
+<script type="text/javascript">
+</script>
+{/block}

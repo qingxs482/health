@@ -1,0 +1,72 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+    <!-- Top Navigation -->
+    <!-- /Top Navigation -->
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="../index/index.html">
+                <span class="ti-home"></span>
+            </a>
+        </li>
+        <li class="breadcrumb-item">训练前管理</li>
+        <li class="breadcrumb-item active">营养膳食信息</li>
+    </ol>
+    <!-- /Breadcrumb -->
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <!-- Page Title -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="block-title">营养膳食信息记录</h3>
+            </div>
+        </div>
+        <!-- /Page Title -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget-area-2 lorvens-box-shadow">
+
+                    <div class="table-div">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col" width="80">序号</th>
+                                <th scope="col" width="180">会员编号</th>
+                                <th scope="col" width="120">会员姓名</th>
+                                <th scope="col" width="80">年龄</th>
+                                <th scope="col" width="80">性别</th>
+                                <th scope="col" width="220">电话</th>
+                                <th scope="col" width="220">膳食营养提交日期</th>
+                                <th scope="col" width="210">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {volist name="food" id="vo"}
+                            <tr>
+                                <th scope="row">{$vo.id}</th>
+                                <td>{$bianhao}</td>
+                                <td>{$member.name}</td>
+                                <td>{$member.age}</td>
+                                <td>{$member.sex}</td>
+                                <td>{$member.tel}</td>
+                                <td>{$vo.time|date='Y-m-d',###}</td>
+                                <td><a href="{:url('Member/yysslist',array('id'=>$vo['id']))}" class="btn btn-primary" >营养膳食明细</a>
+                                </td>
+                            </tr>
+                            {/volist}
+                            </tbody>
+                        </table>
+                        <!--<nav aria-label="Page navigation example">-->
+
+                        <!--</nav>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /Main Content -->
+</div>
+{/block}

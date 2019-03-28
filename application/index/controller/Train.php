@@ -5,23 +5,46 @@ use think\Db;
 use think\Request;
 use Think\Session;
 
-class Member extends Publica
+class Train extends Publica
 {
-    //会员信息
+    //列表信息
     public function index()
     {
         $request = request()->param();
-        $where['cardid|name|idnum'] = array('like',"%".$request['search']."%");
-        var_dump($where);die;
-        $memeber = Db::name('member');
+        $conData = Db::name('train');
         if(isset($request['search'])){
             $where['cardid|name|idnum'] = array('like',"%".$request['search']."%");
-            $memeber = $memeber->where($where);
+            $conData = $conData->where($where);
         }
-        $memeber = $memeber->order('id desc')->paginate(10);
-        $this->assign('list',$memeber);
-        $page = $memeber->render();
+        $conData = $conData->order('id desc')->paginate(12);
+        $this->assign('list',$conData);
+        $page = $conData->render();
         $this->assign('page',$page);
+//        $list = [
+//            [
+//                'id' => 1,
+//                'name' => '青旭升',
+//                'cardid'=>8999,
+//                'name'=>'uu',
+//                'age'=>9,
+//                'sex'=>'男',
+//                'tel'=>123445555,
+//                'jdtime'=>'122344555'
+//           ],
+//            [
+//                'id' => 2,
+//                'name' => '青旭升',
+//                'cardid'=>8999,
+//                'name'=>'uu',
+//                'age'=>9,
+//                'sex'=>'男',
+//                'tel'=>123445555,
+//                'jdtime'=>'122344555'
+//            ],
+//
+//        ];
+//        $this->assign('list',$list);
+
         return $this->fetch();
     }
     
@@ -69,6 +92,21 @@ class Member extends Publica
     public function add()
     {
         return $this->fetch();
+    }
+
+    //基本训练营保存
+    public function addTrain()
+    {
+        $request = request()->post();
+        if(!empty($request['from_studio'])){
+            $request['from_studio'] = implode(',',$request['from_studio']);
+        }
+//        print_r($request);die;
+        $result = Db::name('train')->insert($request);
+        if($result){
+            $this->success('保存成功');
+        }
+        $this->error('保存失败');
     }
 
     //基本档案保存

@@ -1,0 +1,153 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+	<!-- Top Navigation -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="ti-menu" id="sidebarCollapse"></span>
+			</div>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="modal" data-target=".lorvens-modal-lg">
+						<span class="ti-search"></span>
+					</a>
+					<div class="modal fade lorvens-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-lorvens">
+							<div class="modal-content lorvens-box-shadow">
+								<div class="modal-header">
+									<h5 class="modal-title">Serach Client/Project:</h5>
+											<span class="ti-close" data-dismiss="modal" aria-label="Close">
+											</span>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="form-group">
+											<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+											<button type="button" class="btn btn-lorvens lorvens-bg">
+												<span class="ti-location-arrow"></span> Search</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-announcement"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow notifications animated flipInY">
+						<h5>Notifications</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Client asked to send Quotaion</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-time"></span> Have schedule meeting today</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-comment-alt"></span> New User Registered</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="ti-user"></span>
+					</a>
+					<div class="dropdown-menu lorvens-box-shadow profile animated flipInY">
+						<h5>John Willing</h5>
+						<a class="dropdown-item" href="#">
+							<span class="ti-settings"></span> Settings</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-help-alt"></span> Help</a>
+						<a class="dropdown-item" href="#">
+							<span class="ti-power-off"></span> Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /Top Navigation -->
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="../index/index.html">
+				<span class="ti-home"></span>
+			</a>
+		</li>
+		<li class="breadcrumb-item">会员管理</li>
+		<li class="breadcrumb-item active">会员制卡</li>
+	</ol>
+	<!-- /Breadcrumb -->
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="block-title">会员制卡</h3>
+			</div>
+		</div>
+		<!-- /Page Title -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget-area-2 lorvens-box-shadow">
+					<!--<h3 class="widget-title">会员档案管理</h3>-->
+					<form action="{:url('Member/cardList')}" method="post">
+						<div class="col-sm-6">
+							<label class="col-sm-0.5 col-form-label" style="line-height:2;float: left;" >会员卡序列号：</label>
+							<input type="text" style="width: 120px;float: left;border-radius: 8px;" name= "cardId"  class="form-control" >
+							<label class="col-sm-0.5 col-form-label" style="line-height:2;float: left;" >会员卡号：</label>
+							<input type="text" style="width: 160px;float: left;border-radius: 8px;" name= "cardNo"  class="form-control" >
+						</div>
+						<div class="icon-container">
+							<button class="btn btn-primary" href="" style="border-radius: 8px;"><i class="fa fa-search"></i></i>查询</button>
+							<a class="btn btn-primary" href="{:url('Member/addcard')}" style="border-radius: 8px;"><i class="fa fa-plus" aria-hidden="true"></i>添加</a>
+						</div>
+					</form>
+					<div class="table-div">
+						<table class="table table-hover">
+							<thead>
+							<tr>
+								<th scope="col" width="100">序号</th>
+								<th scope="col" width="300">会员卡序列号</th>
+								<th scope="col" width="300">会员卡号</th>
+								<th scope="col" width="300">制卡时间</th>
+								<th scope="col" width="600">制卡人</th>
+								<th scope="col" width="200">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							{volist name="list" id="vo"}
+							<tr>
+								<th scope="row">{$vo.id}</th>
+								<td>{$vo.xuliehao}</td>
+								<td>{$vo.bianhao}</td>
+								<td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+								<td>xxxx</td>
+								<td><a class="btn btn-primary" href="#" onclick="del('{$vo.xuliehao}');">删除</a></td>
+							</tr>
+							{/volist}
+							</tbody>
+						</table>
+						<!--<nav aria-label="Page navigation example">-->
+							{$page}
+						<!--</nav>-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- /Main Content -->
+</div>
+{/block}
+<script>
+	//删除会员卡
+	var urldel = "{:url('Member/delcard')}";
+	function del(id) {
+		$.post(urldel,{id:id},function(data){
+			alert(data);
+			window.location.reload();
+		})
+	}
+</script>

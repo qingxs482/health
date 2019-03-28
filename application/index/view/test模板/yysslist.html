@@ -1,0 +1,255 @@
+{extend name="base:base" /}
+<!-- Page Content -->
+{block name='right'}
+<div id="content">
+    <!-- Top Navigation -->
+    <!-- /Top Navigation -->
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="../index/index.html">
+                <span class="ti-home"></span>
+            </a>
+        </li>
+        <li class="breadcrumb-item">训练前管理</li>
+        <li class="breadcrumb-item active">营养膳食信息</li>
+    </ol>
+    <!-- /Breadcrumb -->
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <!-- Page Title -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="block-title">营养膳食信息记录明细</h3>
+            </div>
+        </div>
+        <!-- /Page Title -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget-area-2 lorvens-box-shadow">
+                    <div class="icon-container">
+                        <a class="btn btn-primary" href="{:url('Member/yyls',array('memberId'=>$list['bianhao']))}"><i class="fa fa-plus" aria-hidden="true"></i>返回</a>
+                    </div>
+                    <div class="table-div">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col" width="80">序号</th>
+                                <th scope="col" width="180">食物</th>
+                                <th scope="col" width="120">频次</th>
+                                <th scope="col" width="210">平均每次摄入量</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>米饭</td>
+                                <td>{$list.mip}</td>
+                                <td>{$list.mis}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>粥、稀饭</td>
+                                <td>{$list.zhp}</td>
+                                <td>{$list.zhs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>面粉类食物</td>
+                                <td>{$list.mfp}</td>
+                                <td>{$list.mfs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>甜食、点心</td>
+                                <td>{$list.tdp}</td>
+                                <td>{$list.tds}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>油炸食物</td>
+                                <td>{$list.yzp}</td>
+                                <td>{$list.yzs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>有馅类食物</td>
+                                <td>{$list.yxp}</td>
+                                <td>{$list.yxs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>粗杂粮</td>
+                                <td>{$list.czp}</td>
+                                <td>{$list.czs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>薯类</td>
+                                <td>{$list.slp}</td>
+                                <td>{$list.sls}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>牛奶、酸奶</td>
+                                <td>{$list.nnp}</td>
+                                <td>{$list.nns}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>鸡蛋</td>
+                                <td>{$list.jdp}</td>
+                                <td>{$list.jds}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td>红肉类</td>
+                                <td>{$list.hrp}</td>
+                                <td>{$list.hrs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td>家禽类</td>
+                                <td>{$list.jqp}</td>
+                                <td>{$list.jqs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13</th>
+                                <td>加工肉制品</td>
+                                <td>{$list.jgrp}</td>
+                                <td>{$list.jgrs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14</th>
+                                <td>河鲜类菜肴</td>
+                                <td>{$list.hxlp}</td>
+                                <td>{$list.hxls}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15</th>
+                                <td>海鲜类食物</td>
+                                <td>{$list.haixianp}</td>
+                                <td>{$list.haixians}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td>豆制品类菜肴</td>
+                                <td>{$list.dzpp}</td>
+                                <td>{$list.dzps}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17</th>
+                                <td>坚果类食物</td>
+                                <td>{$list.jglp}</td>
+                                <td>{$list.jgls}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">18</th>
+                                <td>深色蔬菜类菜肴</td>
+                                <td>{$list.ssscp}</td>
+                                <td>{$list.ssscs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19</th>
+                                <td>浅色蔬菜类菜肴</td>
+                                <td>{$list.qsscp}</td>
+                                <td>{$list.qsscs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20</th>
+                                <td>菌菇蔬菜</td>
+                                <td>{$list.jgp}</td>
+                                <td>{$list.jgs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">21</th>
+                                <td>食用水果</td>
+                                <td>{$list.sgp}</td>
+                                <td>{$list.sgs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">22</th>
+                                <td>甜饮品</td>
+                                <td>{$list.typp}</td>
+                                <td>{$list.typs}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">23</th>
+                                <td>啤酒</td>
+                                <td>{$list.pjiup}</td>
+                                <td>{$list.pjius}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">24</th>
+                                <td>黄酒</td>
+                                <td>{$list.hjiup}</td>
+                                <td>{$list.hjius}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">25</th>
+                                <td>白酒</td>
+                                <td>{$list.bjiup}</td>
+                                <td>{$list.bjius}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">26</th>
+                                <td>红酒</td>
+                                <td>{$list.hhjiup}</td>
+                                <td>{$list.hhjius}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">27</th>
+                                <td>水</td>
+                                <td>{$list.shuip}</td>
+                                <td>{$list.shuis}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">28</th>
+                                <td>汤菜</td>
+                                <td>{$list.tcp}</td>
+                                <td>{$list.tcs}</td>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <!--<nav aria-label="Page navigation example">-->
+
+                        <!--</nav>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /Main Content -->
+</div>
+{/block}
